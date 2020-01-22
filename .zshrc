@@ -115,7 +115,7 @@ alias vlc='vlc --no-instance'
 alias rtop='radeontop'
 alias xc='xclip -selection c'
 alias localbin='/usr/local/bin'
-alias config='/usr/bin/git --git-dir=$HOME/misc/dotfiles --work-tree=$HOME'
+alias gonfig='/usr/bin/git --git-dir=$HOME/misc/dotfiles --work-tree=$HOME'
 
 # Read Bash_Profile which means reading paths
 
