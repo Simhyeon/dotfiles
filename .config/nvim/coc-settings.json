@@ -1,0 +1,16 @@
+{
+	"diagnostic.checkCurrentLine": true,
+	"languageserver": {
+		"bash": {
+			"command": "bash-language-server",
+			"args": ["start"],
+			"filetypes": ["sh"],
+			"ignoredRootPaths": ["~"]
+    	},
+		"xml": {
+			"command": "java",
+			"args": ["-jar", "/home/simon/misc/lsp/lsp4xml/org.eclipse.lsp4xml/target/org.eclipse.lsp4xml-uber.jar"],
+			"filetypes": ["xml","xslt", "xsd"]
+		}
+	}
+}
