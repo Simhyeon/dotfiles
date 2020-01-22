@@ -1,0 +1,42 @@
+! --------------<DESCRIPTION>-------------------
+! Keep in mind that my xmodmap is some clunky result of searching my keymapping so definitely not a neat solution
+! I'm changing left alt key to mode switch and caps lock to alt key becuase who uses caps lock anyway just press the god damn shift
+! With mod switches ... eg. <keyname> for <explanation>
+! 0. <Alt_L>			for Moe_switch key
+! 1. <H> 				for home
+! 2. <Colon>(;) 		for end
+! 3. <i, j, k, l> 		for (up, left, down, right) respectively
+! 4. <Y> 				for Esc or escape key
+! 5. <U>				for Backspace key
+! 6. <O>				for Delete key
+! 7. <Q>				for Backslash
+! 8. <N>				for Pageup for prior key
+! 8. <M>				for Page down for Next key
+! 9. <Caps_Lock>		for Alt_L key
+! --------------<DESCRIPTION/>------------------
+! Alt_L -> Mode_switch
+! You should clear special key you want to change bofore assigning 
+! mod1 means Alt_L of keysyms for example
+! Btw, keycode can be detected with xev command just open up your terminal and type xev to find out.
+! Key code mapping table's format is followed by ...
+! keycode <number> = <normal key> <key pressed with shift> <key pressed with mode switch> <key pressed with shift and mode switch>
+clear lock 
+clear mod1
+keycode 64 = Mode_switch
+keycode 44 = j J Left
+keycode 45 = k K Down
+keycode 31 = i I Up
+keycode 46 = l L Right
+keycode 30 = u U BackSpace
+keycode 32 = o O Delete
+keycode 43 = h H Home
+keycode 29 = y Y Escape
+keycode 47 = semicolon colon End
+keycode 57 = n N Prior
+keycode 58 = m M Next
+keycode 24 = q Q backslash
+keycode 66 = Alt_L
+! and after assinging you sould assign functionatly again
+! Still doesn't get about the mechanism in here, but it works anyway... so yeah
+add lock = Caps_Lock
+add mod1 = Alt_L Alt_R
