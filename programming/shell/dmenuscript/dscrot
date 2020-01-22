@@ -1,0 +1,15 @@
+#!/bin/bash
+
+inp="Save\nNOpenDir\nNOpenfile"
+branch=$(echo -e ${inp[@]} | dmenu -i -p "Scrot")
+case $branch in
+	"Save")
+		scrot -u -d 1 '%Y-%m-%d-@%H-%M-%S-scrot.png' -e 'mv $f /home/simon/사진' && notify-send -u low 'Scrot' 'Captured focused window. Saved to 사진 directory.'
+		;;
+	"NOpenDir")
+		scrot -u -d 1 '%Y-%m-%d-@%H-%M-%S-scrot.png' -e 'mv $f /home/simon/사진' && xdg-open /home/simon/사진 
+		;;
+	"NOpenfile")
+		scrot -u -d 1 '%Y-%m-%d-@%H-%M-%S-scrot.png' -e 'mv $f /home/simon/사진 && feh /home/simon/사진/$f'   
+		;;
+esac

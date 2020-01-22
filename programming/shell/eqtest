@@ -1,0 +1,11 @@
+#!/bin/bash
+
+TRUE="true"
+CONFIRM=$(enquirer confirm -m "Do you want to continue?" -d)
+
+if [ "$TRUE" = "$CONFIRM" ]; then
+	echo "Continuing ..."
+else
+	echo "Thanks for using this tool. Quiting ..."
+	exit
+fi

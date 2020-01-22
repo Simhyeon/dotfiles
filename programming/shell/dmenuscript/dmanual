@@ -1,0 +1,7 @@
+#!/bin/bash
+
+input=$(man -k . | dmenu -i -p "Manual" -l 15 | awk '{print $1}')
+if [ ${#input} -ne 0 ]
+then
+	man -L en_us -Tpdf $input | zathura - 
+fi

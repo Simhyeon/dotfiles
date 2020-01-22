@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# port input parsing to getopts
+# port from manual cut and reading mechanism to awk
+set -e
+set -u
+set -o pipefail
+
+BROWSER=firefox
+BRSFILE=$HOME/.config/brsconfig
+
+list=false
+link=false
+search=false
+opentype=-new-tab
+while getopts 'lo:u:s:p' OPTION; do
+	case "$OPTION" in
+		l)
+			list=true
+			;;
+		o)
+			if [ "$OPTARG" == "t" ]; then
+				opentype=-new-tab
+			elif [ "$OPTARG" == "w" ]; then
+				opentype=-new-window
+			fi
+			;;
+		u)
+			link=true
+			url="$OPTARG"
+			;;
+		s)
+			search=true
+			keyword=$OPTARG
+			;;
+		?)
+			"Valid flags are [-l] [-u] [-s search_keyword]"
+	esac
+done
+
+shift "$(($OPTIND -1))"
+# if($1 == u)
+[ $list = true ] && awk -F"|" '{print $1}' $BRSFILE  && exit 0
+[ $link = true ] && awk -v u="$url" -F"|" '{ if($1 == u) {print $2}}' $BRSFILE | xargs -r $BROWSER $opentype && exit 0
+[ $search = true ] && $BROWSER $opentype "https://duckduckgo.com/?q=$keyword"

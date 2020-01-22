@@ -1,0 +1,5 @@
+#!/bin/bash
+
+var=$(man -k . | dmenu -l 15 | awk '{print $1}')
+echo "$var"
+echo ${#var}

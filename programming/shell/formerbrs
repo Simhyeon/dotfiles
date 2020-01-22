@@ -1,0 +1,76 @@
+#!/bin/bash
+
+browser=firefox #you can change the browser if you want..?Maybe
+
+#check if config file exists and make a file if non exists.
+if [ ! -f "/home/$USER/.config/brsconfig" ]; then
+    touch /home/$USER/.config/brsconfig
+fi
+
+# >/dev/null 2>&1 will prevent messages from the browser to be outputted to the terminal's window; 
+# & will put the process into the background and disown will remove the job / process from the job list
+# , preventing a SIGHUP signal to be propagated to it. 
+if [ -z "$1" ]; then
+    #echo "No argument given"
+    exit 1
+fi
+
+action=$(echo $1 | tr -d '[:space:]' | cut -d'-' -f 2)
+#echo "First argument is : $action"
+
+#"IFS=" to set IFS as "real blank" and ignore trimming at all. (Not to trim trailing delimiters.)
+counter=0
+# abb == Array
+# data == Array
+while IFS= read -r line; do
+    abb[$counter]=$(echo $line | tr -d '[:space:]' | cut -d'|' -f 1) 
+    data[$counter]=$(echo $line | tr -d '[:space:]' | cut -d'|' -f 2) 
+    if [ "$action" == "list" ]; then
+        echo "[$counter] / ${abb[$counter]} / $line"
+    fi
+
+    #echo ${data[$counter]}
+    counter=$(($counter + 1))
+done < "/home/$USER/.config/brsconfig"
+
+if [ "$action" == "list" ]; then
+    exit
+elif [ "$action" == "help" ];then
+    echo "Usage: brs [<Option>]
+       brs [<Option>] [<Url>]
+Open browsers according to the options given.
+Options should be given without any delimiters.
+Options should be given according a order of .brsconfig file.
+
+-list				list every web urls listed in .brsconfig file
+-help				show this help texts and exit.
+-u [<Url>]			Directly link to the url.
+-s [<Keyword>]			Search keyword from duckduckgo search engine
+"
+elif [ "$action" = "u" ]; then
+    $browser "$2" -new-window </dev/null >/dev/null 2>&1 & disown
+elif [ "$action" = "s" ]; then
+  $browser -new-window "https://duckduckgo.com/?q=$2"
+else
+    #change this into iterator through all arguments given. 
+    
+    webarray=()
+    #echo "$@"
+    for var in "$@"
+    do
+        counter=0;
+        for abvar in "${abb[@]}"
+        do
+            if [ "$var" = "$abvar" ]; then
+                webarray+=("$counter")
+                break
+            fi
+            counter=$(($counter + 1))
+        done
+    done
+    for i in "${webarray[@]}"
+    do
+        #echo "${data[$i]}"
+        $browser "${data[$i]}" </dev/null >/dev/null 2>&1 & disown
+    done
+fi

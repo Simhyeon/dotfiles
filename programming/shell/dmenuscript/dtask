@@ -1,0 +1,5 @@
+#!/bin/bash
+
+task list
+echo -e "\n\n"
+read -p "Press to exit..." INPUT

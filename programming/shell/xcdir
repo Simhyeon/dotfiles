@@ -1,0 +1,7 @@
+#!/bin/bash
+
+[ -z $1 ] && echo "No argument given" && exit 1
+
+result=$(which $1)
+[ -z $result ] && echo "No such binary found" && exit
+echo -n $result | xclip -i -selection c

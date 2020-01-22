@@ -1,0 +1,16 @@
+#!/bin/bash
+
+inp="Light\nDim\nReset"
+
+result=$(echo -e "$inp" | dmenu -i -p "Brightness")
+case $result in
+	"Light")
+		redshift -x && redshift -O 2300
+		;;
+	"Dim")
+		redshift -x && redshift -O 1300
+		;;
+	"Reset")
+		redshift -x
+		;;
+esac

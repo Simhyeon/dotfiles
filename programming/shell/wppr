@@ -1,0 +1,65 @@
+#!/bin/bash
+#base directory of application
+basedir="/home/$USER/.config/wppr" #directory name
+#echo "Optimal wallpaper directory => [$basedir]"
+# subdir=""
+
+
+# this is on progress
+set -e
+set -u
+set -o pipefail
+
+basedir=$HOME/.config/wppr/default
+
+while getopts 's:d' OPTION; do
+	case "$OPTION" in
+		d)
+			basedir=$HOME/.config/wppr/default
+			;;
+		s)
+			basedir=$HOME/.config/wppr/default/$OPTARG
+			;;
+	esac
+done
+
+if [ -z "$1" ]; then
+    gsettings set org.gnome.desktop.background picture-uri "file://$basedir/default/default_escape.jpg"
+elif [ "$1" = "-f" ]; then
+	feh --randomize --bg-fill "$basedir/feh"
+else
+    # technically speaking transalte is not necessary (which is 'tr' in here).
+    param="$(echo $1| tr -d '[:space:]' | cut -d'-' -f 2)"
+    action="$(echo $2| tr -d '[:space:]' | cut -d'-' -f 3)"
+
+    #[debug]
+    #echo $action
+    #echo $param
+
+    case "$param" in
+        "d")
+            subdir="default"
+            ;;
+	"s")
+	    subdir="sexy"
+	    ;;
+        *)
+            echo "Valid arguments be => [d, s]"
+            exit
+            ;;
+    esac
+    
+    if [ "$action" == "dedic" ]; then
+        if [ -f "$basedir/$subdir/$3" ]; then
+            gsettings set org.gnome.desktop.background picture-uri "file://$basedir/$subdir/$3"
+        else
+            echo "No such file/action exits"
+            echo "Given argument : $1"
+        fi  
+	else
+        randomfile="$(ls $basedir/$subdir | shuf -n 1)"
+	    #echo $randomfile
+        gsettings set org.gnome.desktop.background picture-uri "file://$basedir/$subdir/$randomfile"
+    fi
+fi
+

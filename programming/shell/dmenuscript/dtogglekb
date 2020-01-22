@@ -1,0 +1,14 @@
+#!/bin/bash
+
+inp="Turn_on\nTurn_off"
+
+result=$(echo -e "$inp" | dmenu -i -p "Toggle keyboard")
+
+case $result in
+	"Turn_on")
+		togglekb ON 14 3
+		;;
+	"Turn_off")
+		togglekb OFF 14
+		;;
+esac

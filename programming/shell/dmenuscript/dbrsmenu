@@ -1,0 +1,13 @@
+#!/bin/bash
+
+BRSFILE=$HOME/.config/brsconfig
+awk -F"|" '{print $1}' $BRSFILE | dmenu -i -p "Website" | xargs -r brs -u
+
+#counter=0
+#while IFS= read -r line; do
+#    abb[$counter]=$(echo $line | tr -d '[:space:]' | cut -d'|' -f 1)
+#    counter=$(($counter + 1))
+#done < "/home/$USER/.config/brsconfig"
+#
+#site=$(printf "%s\n" "${abb[@]}" | dmenu -i -p "Browser")
+#exec brs $site
