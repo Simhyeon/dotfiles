@@ -13,6 +13,10 @@
 ! 8. <N>				for Pageup for prior key
 ! 8. <M>				for Page down for Next key
 ! 9. <Caps_Lock>		for Alt_L key
+! 10. <A>				for Ampersand
+! 11. <S>				for Asterisk
+! 12. <D>				for Dollar
+! 13. <F>				for Percentage
 ! --------------<DESCRIPTION/>------------------
 ! Alt_L -> Mode_switch
 ! You should clear special key you want to change bofore assigning 
@@ -36,6 +40,10 @@ keycode 57 = n N Prior
 keycode 58 = m M Next
 keycode 24 = q Q backslash
 keycode 66 = Alt_L
+keycode 38 = a A ampersand
+keycode 39 = s S asterisk
+keycode 40 = d D dollar
+keycode 41 = f F percent
 ! and after assinging you sould assign functionatly again
 ! Still doesn't get about the mechanism in here, but it works anyway... so yeah
 add lock = Caps_Lock
