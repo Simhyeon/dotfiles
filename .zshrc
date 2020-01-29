@@ -116,7 +116,7 @@ alias rtop='radeontop'
 alias xc='xclip -selection c'
 alias dud='du -sh .'
 alias gonfig='/usr/bin/git --git-dir=$HOME/misc/dotfiles --work-tree=$HOME'
-alias bandwhich='$HOME/.cargo/bin/bandwhich'
+alias bandwhich='sudo $HOME/.cargo/bin/bandwhich'
 
 # Read Bash_Profile which means reading paths
 
