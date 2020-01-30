@@ -7,6 +7,7 @@ Plug 'timonv/vim-cargo'
 Plug 'udalov/kotlin-vim'
 Plug 'shime/vim-livedown'
 Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
@@ -71,6 +72,14 @@ augroup numbertoggle
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
+
+" ---------------------------------------------------------------------------------------------
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsEditSplit="vertical"
+" ---------------------------------------------------------------------------------------------
 
 " ---------------------------------------------------------------------------------------------
 "  Markdown plugin
@@ -246,7 +255,8 @@ let g:vista#renderer#enable_icon = 0
 "-------------------------------------------------------------
 " fzf config
 
-nnoremap <silent> <C-s> :call Fzf_dev()<CR>
+nnoremap <silent> <C-s> :Files<CR>
+nnoremap <silent> <Leader>e :call Fzf_dev()<CR>
 
 " general
 let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
@@ -367,3 +377,4 @@ nnoremap <Leader>cf :OmniSharpCodeFormat<CR>
 " UI Settings
 let NERDTreeMinimalUI=1    " Start NERDTree in minimal UI mode (No help lines)
 let NERDTreeDirArrows=1    " Display arrows instead of ascii art in NERDTree
+
