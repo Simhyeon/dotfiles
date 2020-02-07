@@ -1,5 +1,38 @@
 #!/bin/bash
-
+echo -e "Task List"
 task list
-echo -e "\n\n"
-read -p "Press to exit..." INPUT
+echo -e "\n"
+while :
+do
+	read -p "Option to execute (h for help): " INPUT
+	case "$INPUT" in
+		"h")
+			echo -e "h for help\nq for quit\nr for refresh\na for add task\nn for set task to done\nd for delete task"
+			;;
+		"q")
+			exit 0
+			;;
+		"r")
+			clear
+			task list
+			;;
+		"a")
+			read -p "Task to add: " NAME
+			task add $NAME
+			clear
+			task list
+			;;
+		"n")
+			read -p "Task id to set done: " ID
+			task done $ID
+			clear
+			task list
+			;;
+		"d")
+			read -p "Task id to delete: " ID
+			task delete $ID
+			clear
+			task list
+			;;
+	esac
+done
