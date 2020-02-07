@@ -10,7 +10,7 @@
 sourceDirectory=$HOME/notes
 [ ! -d "$sourceDirectory" ] && mkdir $sourceDirectory
 
-options="Read_html\nRead_org\nEdit_org\nNew_org"
+options="Read_html\nRead_org\nEdit_org\nNew_org\nAgenda"
 selection=$(echo -e $options | dmenu -i -p "Note Taking")
 
 # special function for emacs read only
@@ -67,6 +67,9 @@ case "$selection" in
 		fi
 		touch $sourceDirectory/$newfilename
 		emacs --chdir=$sourceDirectory $newfilename 
+		;;
+	"Agenda")
+		emacs --eval '(progn (setq inhibit-splash-screen t) (org-agenda) (delete-other-windows))'
 		;;
 	*)
 		echo "Unexpected behaviour"
