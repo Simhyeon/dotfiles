@@ -7,10 +7,10 @@
 			"filetypes": ["sh"],
 			"ignoredRootPaths": ["~"]
     	},
-		"xml": {
-			"command": "java",
-			"args": ["-jar", "/home/simon/misc/lsp/lsp4xml/org.eclipse.lsp4xml/target/org.eclipse.lsp4xml-uber.jar"],
-			"filetypes": ["xml","xslt", "xsd"]
+			"xml": {
+				"command": "java",
+				"args": ["-jar", "/home/simon/misc/lsp/lemminx/org.eclipse.lemminx/target/org.eclipse.lemminx-uber.jar"],
+				"filetypes": ["xml","xslt", "xsd"]
 		},
 		"kotlin": {
 			"command": "/home/simon/misc/lsp/kotlin-lsp/server/build/install/server/bin/kotlin-language-server",
