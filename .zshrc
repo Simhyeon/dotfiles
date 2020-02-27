@@ -109,7 +109,7 @@ alias ls='exa'
 alias grep='rg'
 alias netest='ping 1.1.1.1'
 alias rn='ranger'
-alias untar='tar -xvzf'
+alias untar='tar -xvf'
 alias fd='fdfind'
 alias vlc='vlc --no-instance'
 alias rtop='radeontop'
@@ -117,14 +117,21 @@ alias xc='xclip -selection c'
 alias dud='du -sh .'
 alias gonfig='/usr/bin/git --git-dir=$HOME/misc/dotfiles --work-tree=$HOME'
 alias bandwhich='sudo $HOME/.cargo/bin/bandwhich'
+alias toodr='ssh odroid@odroid.local'
 
 # Read Bash_Profile which means reading paths
 
 if [ -f ~/.bash_profile ]; then 
     . ~/.bash_profile;
 fi
+
+if [ -f ~/.dmenu_env ]; then 
+    . ~/.dmenu_env;
+fi
 # Custom shell prompt 
 # In this case, starship
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source /home/simon/.config/broot/launcher/bash/br
