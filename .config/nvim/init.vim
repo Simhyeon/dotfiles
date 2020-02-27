@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'rust-lang/rust.vim'
+Plug 'arzg/vim-rust-syntax-ext'
 Plug 'timonv/vim-cargo'
 Plug 'udalov/kotlin-vim'
 Plug 'shime/vim-livedown'
