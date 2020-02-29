@@ -21,13 +21,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'yuki-ycino/fzf-preview.vim'
-" Plug 'lotabout/skim', { 'dir': '~/.skim', 'do': './install' }
-" Plug 'lotabout/skim.vim'
-
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'dense-analysis/ale'
-
-" Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 set autoindent
@@ -45,7 +40,9 @@ set encoding=UTF-8
 set autoread
 syntax enable
 
+set termguicolors
 colorscheme gruvbox
+set background=light
 
 " highlight MatchParen cterm=none ctermbg=green ctermfg=blue
 highlight Comment ctermfg=grey cterm=italic
@@ -62,8 +59,8 @@ let g:airline_theme='gruvbox'
 set hidden
 
 "gruvbox speicfic configs
-let g:gruvbox_italic = 1
-let g:gruvbox_bold = 1
+"let g:gruvbox_italic = 1
+"let g:gruvbox_bold = 1
 
 highlight clear SignColumn
 
