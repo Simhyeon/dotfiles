@@ -9,7 +9,7 @@ export ZSH="/home/simon/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-ZSH_THEME="robbyrussell"
+ZSH_THEME="sunrise"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -135,3 +135,7 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source /home/simon/.config/broot/launcher/bash/br
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/simon/.sdkman"
+[[ -s "/home/simon/.sdkman/bin/sdkman-init.sh" ]] && source "/home/simon/.sdkman/bin/sdkman-init.sh"
