@@ -9,8 +9,17 @@ export ZSH="/home/simon/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-ZSH_THEME="sunrise"
+ZSH_THEME="bullet-train"
 
+# BULLETTRAIN VARIABLES
+BULLETTRAIN_PROMPT_ORDER=(
+  context
+  dir
+  git
+)
+BULLETTRAIN_CONTEXT_FG="white"
+BULLETTRAIN_DIR_BG="cyan"
+BULLETTRAIN_DIR_FG="black"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
