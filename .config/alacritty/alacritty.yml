@@ -144,36 +144,67 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (Belafonte Day)
+# Colors (Github scheme)
 colors:
   # Default colors
   primary:
     # hard contrast: background = '0x1d2021'
-    background: '0xd5ccba'
+    background: '0xf4f4f4'
     # soft contrast: background = '0x32302f'
-    foreground: '0x45373c'
+    foreground: '0x3e3e3e'
 
   # Normal colors
   normal:
-    black:   '0x20111b'
-    red:     '0xbe100e'
-    green:   '0x858162'
-    yellow:  '0xeaa549'
-    blue:    '0x426a79'
-    magenta: '0x97522c'
-    cyan:    '0x989a9c'
-    white:   '0x968c83'
+    black:   '0x3e3e3e'
+    red:     '0x970b16'
+    green:   '0x07962a'
+    yellow:  '0xf8eec7'
+    blue:    '0x003e8a'
+    magenta: '0xe94691'
+    cyan:    '0x89d1ec'
+    white:   '0xffffff'
 
   # Bright colors
   bright:
-    black:   '0x5e5252'
-    red:     '0xbe100e'
-    green:   '0x858162'
-    yellow:  '0xeaa549'
-    blue:    '0x426a79'
-    magenta: '0x97522c'
-    cyan:    '0x989a9c'
-    white:   '0xd5ccba'
+    black:   '0x666666'
+    red:     '0xde0000'
+    green:   '0x87d5a2'
+    yellow:  '0xf1d007'
+    blue:    '0x2e6cba'
+    magenta: '0xffa29f'
+    cyan:    '0x1cfafe'
+    white:   '0xffffff'
+
+    ## Colors (Belafonte Day)
+    #colors:
+    #  # Default colors
+    #  primary:
+    #    # hard contrast: background = '0x1d2021'
+    #    background: '0xd5ccba'
+    #    # soft contrast: background = '0x32302f'
+    #    foreground: '0x45373c'
+    #
+    #  # Normal colors
+    #  normal:
+    #    black:   '0x20111b'
+    #    red:     '0xbe100e'
+    #    green:   '0x858162'
+    #    yellow:  '0xeaa549'
+    #    blue:    '0x426a79'
+    #    magenta: '0x97522c'
+    #    cyan:    '0x989a9c'
+    #    white:   '0x968c83'
+    #
+    #  # Bright colors
+    #  bright:
+    #    black:   '0x5e5252'
+    #    red:     '0xbe100e'
+    #    green:   '0x858162'
+    #    yellow:  '0xeaa549'
+    #    blue:    '0x426a79'
+    #    magenta: '0x97522c'
+    #    cyan:    '0x989a9c'
+    #    white:   '0xd5ccba'
 
 
     ## Colors (Gruvbox dark)
