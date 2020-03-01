@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
+Plug 'cormacrelf/vim-colors-github'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'rust-lang/rust.vim'
@@ -41,7 +42,8 @@ set autoread
 syntax enable
 
 set termguicolors
-colorscheme gruvbox
+let g:github_colors_soft = 1
+colorscheme github
 set background=light
 
 " highlight MatchParen cterm=none ctermbg=green ctermfg=blue
@@ -55,7 +57,7 @@ nmap <silent> <F8> :Vista!!<CR>
 " let g:loaded_matchparen=1
 
 " airline theme
-let g:airline_theme='gruvbox'
+let g:airline_theme='github'
 set hidden
 
 "gruvbox speicfic configs
@@ -229,7 +231,7 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " remove background color
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
 
 " ---------------------------------------------------------------------------------------------
 " Vista vim
