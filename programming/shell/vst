@@ -1,7 +1,11 @@
 #!/bin/bash
 
+player=mpv
+if ! [ -z "$STREAMPLAYER" ]; then
+	player=$STREAMPLAYER
+fi
 res=$2
 # $1 for url
 [ -z "$1" ] && echo "No url supplied" && exit 1
 [ -z "$2" ] && res=best
-streamlink -p vlc $1 $res 
+streamlink -p $player $1 $res 

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+COMP=false
+EXEC=false
+while getopts 'c, e' OPTION; do
+	case "$OPTION" in
+		c)
+			COMP=true
+			;;
+		e)
+			EXEC=true
+			;;
+	esac
+done
+
+shift "$(($OPTIND -1))"
+
+if [ "$COMP" = true ]; then
+	kotlinc "$1.kt" -include-runtime -d "$1.jar"
+fi
+
+if [ "$EXEC" = true ]; then
+	java -jar $1.jar
+fi
