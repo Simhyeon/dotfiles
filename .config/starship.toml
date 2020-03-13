@@ -1,0 +1,12 @@
+add_newline = true
+
+[directory]
+style = "bold black"
+
+[rust]
+symbol = "⚙️ "
+
+[character]
+symbol = "⮞"
+style_success = "bold black"
+style_failure = "bold red"
