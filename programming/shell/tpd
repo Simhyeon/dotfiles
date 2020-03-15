@@ -1,0 +1,14 @@
+#!/bin/bash
+# Give arugment 0 to turn off touchpad and 1 to turn on touchpad
+
+if [ "$1" != "1" ] && [ "$1" != "0" ]; then
+    echo "Valid argument => [0 OR 1]"
+else 
+    # Find the Id of Touchpad id from xinput list.
+    id=$(xinput --list --short | awk -F"\t" '/TouchPad/{print $2}' | cut -d'=' -f 2 )
+
+    #For Debug
+    #echo $id 
+
+    xinput set-prop $id "Device Enabled" $1
+fi
