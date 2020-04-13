@@ -10,7 +10,7 @@
 sourceDirectory=$HOME/notes
 [ ! -d "$sourceDirectory" ] && mkdir $sourceDirectory
 
-options="Read_html\nRead_org\nEdit_org\nNew_org\nAgenda"
+options="Read_html\nRead_org\nEdit_org\nNew_org\nAgenda\nRead_md\nEdit_md\nNew_md"
 selection=$(echo -e $options | dmenu -i -p "Note Taking")
 
 # special function for emacs read only
@@ -70,6 +70,42 @@ case "$selection" in
 		;;
 	"Agenda")
 		emacs --eval '(progn (setq inhibit-splash-screen t) (org-agenda) (delete-other-windows))'
+		;;
+	"Read_md")
+		for file in "$sourceDirectory"/*
+		do
+			# filename is filename without directory prefix
+			filename=$(basename -- "$file")
+			# check the extension name
+			[ "${filename##*.}" = "md" ] && fileList="${fileList}$filename\n"
+		done
+		source=$(echo -e -n $fileList | dmenu -i -p "File to read" -l 8 | xargs -r printf '%s/%s' $sourceDirectory)
+		[ -z "$source" ] && exit 0
+		des=$(printf '%s.%s' "${source%.*}" "pdf") 
+		pandoc $source -o $des
+		zathura $des
+		exit 0
+		;;
+	"Edit_md")
+		for file in "$sourceDirectory"/*
+		do
+			# filename is filename without directory prefix
+			filename=$(basename -- "$file")
+			# check the extension name
+			[ "${filename##*.}" = "md" ] && fileList="${fileList}$filename\n"
+		done
+		echo -e -n $fileList | dmenu -i -p "File to edit" -l 8 | xargs -r printf '%s/%s' $sourceDirectory | xargs -r emacs
+		exit 0
+		;;
+	"New_md")
+		if [ -x "$(command -v zenity)" ]; then
+			newfilename=$(zenity --entry --text "File name" --title "dnote" --entry-text="" | xargs -r printf '%s.md')
+			[ -z "$newfilename" ] && exit 0
+		else
+			newfilename=new_note.md
+		fi
+		touch $sourceDirectory/$newfilename
+		emacs --chdir=$sourceDirectory $newfilename 
 		;;
 	*)
 		echo "Unexpected behaviour"

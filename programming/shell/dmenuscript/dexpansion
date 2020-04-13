@@ -1,6 +1,6 @@
 #!/bin/bash
 
-inp="dir_home\ndir_prog\ndir_doc\ndir_unity\ndis_task\nbin_rtop\nbin_htop\nbin_gt\nshl_update\nnau_download"
+inp="dir_home\ndir_prog\ndir_latex\ndir_doc\ndir_unity\ndis_task\nbin_rtop\nbin_htop\nbin_gt\nshl_update"
 destination=("/home/$USER/" "/home/$USER/programming/" "/home/$USER/Unity/Projects")
 
 result=$(echo -e "$inp" | dmenu -i -p "Exec")
@@ -10,6 +10,9 @@ case $result in
 		;;
 	"dir_prog")
 		alacritty -e ranger ${destination[1]}
+		;;
+	"dir_latex")
+		alacritty -e ranger /home/simon/latex/
 		;;
 	"dir_doc")
 		alacritty -e ranger /home/$USER/문서
@@ -31,8 +34,5 @@ case $result in
 		;;
 	"shl_update")
 		alacritty -e dupdate
-		;;
-	"nau_download")
-		xdg-open $HOME/다운로드/	
 		;;
 esac
