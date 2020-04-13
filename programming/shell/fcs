@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# 먼저 가장 큰 기능은 파이어폭스의 CSS 파일을 바꿔주는 기능을 한다. 기본적으로는 파일을 복하새서 userChrome.css로 넣는 것이다. 그런 의미에서는 config 파일이 하나 있어야 겠지. 그리고 거기서 내가 인풋을 하게 되면 그 인풋에 따라서 뭔가를 넣어야 할 테고 
+
+# 지금은 존내 귀찮기 때문에 대충 설정을 해두자. 
+
+# 폴더가 없으면 만들고 
+# 만약 있다면 컨피그 파일을 검색해서 인덱싱을 해두고 
+# 인풋에 해당하는 파일이 있으면 그것을 복사하는 것임. 
+# 기본적으로 json이나 다른 파일들을 활용해서 더 복잡하게 해도 된다고 생각은 하는데 뭐 그럼 파서를 써야 할려나 아무튼 그럼. 
+
+dir=/home/simon/.mozilla/firefox/svuxhmen.default-release/chrome
+[ "$1" == "m" ] && cat $HOME/.config/fcs/minimal.css > $dir/userChrome.css 
+[ "$1" == "n" ] && cat $HOME/.config/fcs/normal.css > $dir/userChrome.css 
