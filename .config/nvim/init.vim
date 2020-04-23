@@ -1,10 +1,10 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'cormacrelf/vim-colors-github'
+Plug 'ap/vim-css-color'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'rust-lang/rust.vim'
-"Plug 'arzg/vim-rust-syntax-ext'
+Plug 'lervag/vimtex'
 Plug 'timonv/vim-cargo'
 Plug 'udalov/kotlin-vim'
 Plug 'shime/vim-livedown'
@@ -42,9 +42,8 @@ set autoread
 syntax enable
 
 set termguicolors
-let g:github_colors_soft = 1
-colorscheme github
-set background=light
+colorscheme gruvbox
+set background=dark
 
 " highlight MatchParen cterm=none ctermbg=green ctermfg=blue
 highlight Comment ctermfg=grey cterm=italic
@@ -57,12 +56,12 @@ nmap <silent> <F8> :Vista!!<CR>
 " let g:loaded_matchparen=1
 
 " airline theme
-let g:airline_theme='github'
+let g:airline_theme='gruvbox'
 set hidden
 
 "gruvbox speicfic configs
-"let g:gruvbox_italic = 1
-"let g:gruvbox_bold = 1
+let g:gruvbox_italic = 1
+let g:gruvbox_bold = 1
 
 highlight clear SignColumn
 
@@ -73,6 +72,9 @@ augroup numbertoggle
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
+
+" remove background color
+hi Normal guibg=NONE ctermbg=NONE
 
 " ---------------------------------------------------------------------------------------------
 " UltiSnips
@@ -102,6 +104,7 @@ let g:coc_global_extensions = [
   \ 'coc-eslint', 
   \ 'coc-prettier', 
   \ 'coc-json', 
+  \ 'coc-rls', 
   \ ]
 
 " Some servers have issues with backup files, see #649
@@ -230,8 +233,6 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-" remove background color
-" hi Normal guibg=NONE ctermbg=NONE
 
 " ---------------------------------------------------------------------------------------------
 " Vista vim
@@ -380,3 +381,26 @@ nnoremap <Leader>cf :OmniSharpCodeFormat<CR>
 let NERDTreeMinimalUI=1    " Start NERDTree in minimal UI mode (No help lines)
 let NERDTreeDirArrows=1    " Display arrows instead of ascii art in NERDTree
 
+"-------------------------------------------------------------
+" LaTex option
+
+let g:tex_flavor='latex'
+
+"-------------------------------------------------------------
+" split option
+set splitbelow splitright
+
+nnoremap <C-h> <C-W>h 
+nnoremap <C-j> <C-j>j 
+nnoremap <C-k> <C-k>k 
+nnoremap <C-l> <C-l>l 
+
+nnoremap <silent> <C-Left> :vertical resize +3<CR>
+nnoremap <silent> <C-Right> :vertical resize -3<CR>
+nnoremap <silent> <C-Up> :resize +3<CR>
+nnoremap <silent> <C-Down> :resize -3<CR>
+
+map <Leader>th <C-w>t<C-w>H
+map <Leader>tk <C-w>t<C-w>K
+
+set fillchars+=vert:\ 
