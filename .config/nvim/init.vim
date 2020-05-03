@@ -40,7 +40,7 @@ set encoding=UTF-8
 " set noshowmatch
 set autoread
 syntax enable
-
+set mouse=a
 set termguicolors
 colorscheme gruvbox
 set background=dark

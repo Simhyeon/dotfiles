@@ -1,13 +1,7 @@
 {
 	"diagnostic.checkCurrentLine": true,
 	"languageserver": {
-		"bash": {
-			"command": "bash-language-server",
-			"args": ["start"],
-			"filetypes": ["sh"],
-			"ignoredRootPaths": ["~"]
-    	},
-			"xml": {
+		"xml": {
 				"command": "java",
 				"args": ["-jar", "/home/simon/misc/lsp/lemminx/org.eclipse.lemminx/target/org.eclipse.lemminx-uber.jar"],
 				"filetypes": ["xml","xslt", "xsd"]
