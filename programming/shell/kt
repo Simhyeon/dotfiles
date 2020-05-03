@@ -2,13 +2,17 @@
 
 COMP=false
 EXEC=false
-while getopts 'c, e' OPTION; do
+DEBUG=false
+while getopts 'c, e, d' OPTION; do
 	case "$OPTION" in
 		c)
 			COMP=true
 			;;
 		e)
 			EXEC=true
+			;;
+		d)
+			DEBUG=true
 			;;
 	esac
 done
@@ -17,8 +21,15 @@ shift "$(($OPTIND -1))"
 
 if [ "$COMP" = true ]; then
 	kotlinc "$1.kt" -include-runtime -d "$1.jar"
+	exit 0
 fi
 
 if [ "$EXEC" = true ]; then
 	java -jar $1.jar
+	exit 0
+fi
+
+if [ "$DEBUG" = true ]; then
+	kotlinc "$1.kt" -include-runtime -d "$1.jar" && java -jar $1.jar
+	exit 0
 fi
