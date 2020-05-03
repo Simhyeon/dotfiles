@@ -127,6 +127,7 @@ alias dud='du -sh .'
 alias gonfig='/usr/bin/git --git-dir=$HOME/misc/dotfiles --work-tree=$HOME'
 alias bandwhich='sudo $HOME/.cargo/bin/bandwhich'
 alias toodr='ssh odroid@odroid.local'
+alias lpandoc='pandoc --pdf-engine=lualatex'
 
 # Read Bash_Profile which means reading paths
 
