@@ -9,10 +9,6 @@
 		"kotlin": {
 			"command": "/home/simon/misc/lsp/kotlin-lsp/server/build/install/server/bin/kotlin-language-server",
 			"filetypes": ["kotlin"]
-		},
-		"clangd.arguments": [
-			"--background-index",
-			"--completion-style=detailed"
-		]
+		}
 	}
 }
