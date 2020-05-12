@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'ap/vim-css-color'
 Plug 'morhetz/gruvbox'
+Plug 'junegunn/seoul256.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'rust-lang/rust.vim'
 Plug 'lervag/vimtex'
@@ -15,6 +16,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'liuchengxu/vista.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -42,8 +44,9 @@ set autoread
 syntax enable
 set mouse=a
 set termguicolors
-colorscheme gruvbox
+colo seoul256
 set background=dark
+let g:seoul256_background = 256
 
 " highlight MatchParen cterm=none ctermbg=green ctermfg=blue
 highlight Comment ctermfg=grey cterm=italic
@@ -56,12 +59,12 @@ nmap <silent> <F8> :Vista!!<CR>
 " let g:loaded_matchparen=1
 
 " airline theme
-let g:airline_theme='gruvbox'
+let g:airline_theme='zenburn'
 set hidden
 
 "gruvbox speicfic configs
-let g:gruvbox_italic = 1
-let g:gruvbox_bold = 1
+" let g:gruvbox_italic = 1
+" let g:gruvbox_bold = 1
 
 highlight clear SignColumn
 
@@ -74,7 +77,7 @@ augroup numbertoggle
 augroup END
 
 " remove background color
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
 
 " ---------------------------------------------------------------------------------------------
 " UltiSnips
