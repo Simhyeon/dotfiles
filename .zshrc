@@ -124,7 +124,7 @@ alias vlc='vlc --no-instance'
 alias rtop='radeontop'
 alias xc='xclip -selection c'
 alias dud='du -sh .'
-alias gonfig='/usr/bin/git --git-dir=$HOME/misc/dotfiles --work-tree=$HOME'
+alias dfi='/usr/bin/git --git-dir=$HOME/misc/dotfiles --work-tree=$HOME'
 alias bandwhich='sudo $HOME/.cargo/bin/bandwhich'
 alias toodr='ssh odroid@odroid.local'
 alias lpandoc='pandoc --pdf-engine=lualatex'
@@ -138,13 +138,8 @@ fi
 if [ -f ~/.dmenu_env ]; then 
     . ~/.dmenu_env;
 fi
-# Custom shell prompt 
-# In this case, starship
- eval "$(starship init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-source /home/simon/.config/broot/launcher/bash/br
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/simon/.sdkman"
