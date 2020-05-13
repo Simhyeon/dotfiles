@@ -129,6 +129,11 @@ alias bandwhich='sudo $HOME/.cargo/bin/bandwhich'
 alias toodr='ssh odroid@odroid.local'
 alias lpandoc='pandoc --pdf-engine=lualatex'
 
+# git aliases
+alias ga='git add'
+alias gcm='git commit -m'
+alias gp='git push'
+
 # Read Bash_Profile which means reading paths
 
 if [ -f ~/.bash_profile ]; then 
