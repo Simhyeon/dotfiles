@@ -9,6 +9,8 @@
 # 인풋에 해당하는 파일이 있으면 그것을 복사하는 것임. 
 # 기본적으로 json이나 다른 파일들을 활용해서 더 복잡하게 해도 된다고 생각은 하는데 뭐 그럼 파서를 써야 할려나 아무튼 그럼. 
 
-dir=/home/simon/.mozilla/firefox/svuxhmen.default-release/chrome
+dir=/home/simon/.mozilla/firefox/cel24wi9.default-release/chrome/
 [ "$1" == "m" ] && cat $HOME/.config/fcs/minimal.css > $dir/userChrome.css 
 [ "$1" == "n" ] && cat $HOME/.config/fcs/normal.css > $dir/userChrome.css 
+
+pgrep -x "firefox" > /dev/null && firefox about:restartrequired
