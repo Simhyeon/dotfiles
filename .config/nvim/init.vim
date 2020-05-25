@@ -17,14 +17,15 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
-" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'preservim/nerdcommenter'
 Plug 'liuchengxu/vista.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'yuki-ycino/fzf-preview.vim'
-Plug 'OmniSharp/omnisharp-vim'
+" Plug 'OmniSharp/omnisharp-vim'
 Plug 'dense-analysis/ale'
 call plug#end()
 
@@ -44,6 +45,7 @@ set autoread
 syntax enable
 set mouse=a
 set termguicolors
+colorscheme seoul256
 colo seoul256
 set background=dark
 let g:seoul256_background = 256
@@ -77,7 +79,7 @@ augroup numbertoggle
 augroup END
 
 " remove background color
-" hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
 
 " ---------------------------------------------------------------------------------------------
 " UltiSnips
@@ -351,6 +353,7 @@ set previewheight=5
 
 let g:ale_linters = { 'cs': ['OmniSharp'] }
 let g:OmniSharp_highlight_types = 3
+let g:OmniSharp_server_stdio = 1
 
 augroup omnisharp_commands
 	autocmd!
