@@ -1,7 +1,8 @@
 ! --------------<DESCRIPTION>-------------------
 ! Keep in mind that my xmodmap is some clunky result of searching my keymapping so definitely not a neat solution
-! I'm changing left alt key to mode switch and caps lock to alt key becuase who uses caps lock anyway just press the god damn shift
-! With mod switches ... eg. <keyname> for <explanation>
+! I'm changing left alt key to mode switch and caps lock to alt key becuase who uses caps lock anyway just press the good ol' shift
+! Every keyname is represented as capital but not the capital in real use.
+! n. <keyname> 			for <explanation>
 ! 0. <Alt_L>			for Moe_switch key
 ! 1. <H> 				for home
 ! 2. <Colon>(;) 		for end
@@ -19,6 +20,8 @@
 ! 13. <F>				for Percentage
 ! 14. <E>				for at
 ! 15. <W>				for numbersign
+! 16. <Z>				for minus
+! 17. <X>				for equal
 ! --------------<DESCRIPTION/>------------------
 ! Alt_L -> Mode_switch
 ! You should clear special key you want to change bofore assigning 
@@ -48,6 +51,8 @@ keycode 40 = d D dollar
 keycode 41 = f F percent
 keycode 26 = e E numbersign
 keycode 25 = w W at
+keycode 52 = z Z minus
+keycode 53 = x X equal
 ! and after assinging you sould assign functionatly again
 ! Still doesn't get about the mechanism in here, but it works anyway... so yeah
 add lock = Caps_Lock
