@@ -92,7 +92,7 @@ let g:UltiSnipsEditSplit="vertical"
 " ---------------------------------------------------------------------------------------------
 "  Markdown plugin
 nmap <silent> <C-l> :LivedownToggle<CR>
-let g:livedown_browser = "surf"
+let g:livedown_browser = "firefox"
 " ---------------------------------------------------------------------------------------------
 " custom keymap
 " toggle nerd tree

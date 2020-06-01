@@ -5,6 +5,7 @@ export EDITOR=$VISUAL
 export ANDROID_HOME=/home/simon/AndroidStudio/Sdk
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+export PATH=/home/simon/.npm-packages/bin:$PATH
 
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
