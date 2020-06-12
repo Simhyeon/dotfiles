@@ -1,6 +1,6 @@
 #!/bin/bash
 
-inp="dir_home\ndir_prog\ndir_latex\ndir_doc\ndir_unity\ndis_task\nbin_rtop\nbin_htop\nbin_gt\nshl_update"
+inp="dir_home\ndir_prog\ndir_latex\ndir_doc\ndir_unity\ndis_task\nbin_rtop\nbin_news\nbin_htop\nbin_gt\nshl_update"
 destination=("/home/$USER/" "/home/$USER/programming/" "/home/$USER/Unity/Projects")
 
 result=$(echo -e "$inp" | dmenu -i -p "Exec")
@@ -25,6 +25,9 @@ case $result in
 		;;
 	"bin_rtop")
 		alacritty -e radeontop
+		;;
+	"bin_news")
+		alacritty -e newsboat
 		;;
 	"bin_htop")
 		alacritty -e htop
