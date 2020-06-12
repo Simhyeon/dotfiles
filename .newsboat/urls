@@ -1,0 +1,28 @@
+--------------------
+------NEWSFEED------
+--------------------
+http://feeds.feedburner.com/itsfoss "~NEWSFEED: It's foss"
+http://feeds.arstechnica.com/arstechnica/technology-lab "~NEWSFEED: Ars technica"
+https://feeds.feedburner.com/fossbytes "~NEWSFEED: Fossbtye"
+--------------------
+-------REDDIT-------
+--------------------
+https://www.reddit.com/r/programming/top.rss?t=month "~REDDIT: programming"
+https://www.reddit.com/r/rust/top.rss?t=month "~REDDIT: Rust Lang"
+https://www.reddit.com/r/pcgaming/top.rss?t=month "~REDDIT: PC Gaming"
+--------------------
+------YOUTUBE-------
+--------------------
+https://www.youtube.com/feeds/videos.xml?channel_id=UCeeFfhMcJa1kjtfZAGskOCA "~YOUTUBE: TechLinked"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~YOUTUBE: LukeSmith"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg "~YOUTUBE: DistroTube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA "~YOUTUBE: Fireship"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCyWmhgJ3talmk3H5GdmjHfg "~YOUTUBE: GadgetSeoul"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCUpJs89fSBXNolQGOYKn0YQ "~YOUTUBE: NomadCoder"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC4QZ_LsYcvcq7qOsOhpAX4A "~YOUTUBE: ColdFusion"
+--------------------
+-------GITHUB-------
+--------------------
+https://github.com/alacritty/alacritty/releases.atom "~GITHUB: Alacritty"
+https://github.com/mun-lang/mun/releases.atom "~GITHUB: Mun"
+https://github.com/ron-rs/ron/releases.atom "~GITHUB: Ron"
