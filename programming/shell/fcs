@@ -12,5 +12,6 @@
 dir=/home/simon/.mozilla/firefox/cel24wi9.default-release/chrome/
 [ "$1" == "m" ] && cat $HOME/.config/fcs/minimal.css > $dir/userChrome.css 
 [ "$1" == "n" ] && cat $HOME/.config/fcs/normal.css > $dir/userChrome.css 
+[ "$1" == "o" ] && cat $HOME/.config/fcs/one_liner.css > $dir/userChrome.css 
 
 pgrep -x "firefox" > /dev/null && firefox about:restartrequired

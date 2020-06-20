@@ -4,25 +4,56 @@
 http://feeds.feedburner.com/itsfoss "~NEWSFEED: It's foss"
 http://feeds.arstechnica.com/arstechnica/technology-lab "~NEWSFEED: Ars technica"
 https://feeds.feedburner.com/fossbytes "~NEWSFEED: Fossbtye"
+https://feeds.feedburner.com/d0od "~NEWSFEED: OMG Ubuntu"
+https://www.zdnet.com/news/rss.xml "~NEWSFEED: ZDNet"
+https://techcrunch.com/feed "~NEWSFEED: TechCrunch"
+https://www.techradar.com/rss "~NEWSFEED: TechRadar"
+https://thenextweb.com/feed "~NEWSFEED: TNW"
+https://www.technewsal.com/feed "~NEWSFEED: Technewsal"
+https://bbs.ruliweb.com/pc/board/1003/rss "~NEWSFEED: 루리웹 PC 정보"
+https://bbs.ruliweb.com/mobile/board/1004/rss "~NEWSFEED: 루리웹 모바일 정보"
+https://bbs.ruliweb.com/news/529/rss "~NEWSFEED: 루리웹 공식 PC 정보"
 --------------------
 -------REDDIT-------
 --------------------
 https://www.reddit.com/r/programming/top.rss?t=month "~REDDIT: programming"
-https://www.reddit.com/r/rust/top.rss?t=month "~REDDIT: Rust Lang"
+https://old.reddit.com/r/rust/top.rss?t=month "~REDDIT: Rust Lang"
 https://www.reddit.com/r/pcgaming/top.rss?t=month "~REDDIT: PC Gaming"
 --------------------
 ------YOUTUBE-------
 --------------------
+-----INFORMATIVE----
+https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw "~YOUTUBE: LTT"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCeeFfhMcJa1kjtfZAGskOCA "~YOUTUBE: TechLinked"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCdBK94H6oZT2Q7l0-b0xmMg "~YOUTUBE: ShortCircuit"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC0vBXGSyV14uvJ4hECDOl0Q "~YOUTUBE: TechQuickie"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~YOUTUBE: LukeSmith"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg "~YOUTUBE: DistroTube"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA "~YOUTUBE: Fireship"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCyWmhgJ3talmk3H5GdmjHfg "~YOUTUBE: GadgetSeoul"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCUpJs89fSBXNolQGOYKn0YQ "~YOUTUBE: NomadCoder"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC4QZ_LsYcvcq7qOsOhpAX4A "~YOUTUBE: ColdFusion"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw "~YOUTUBE: 3Blue1Brown"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCgNg3vwj3xt7QOrcIDaHdFg "~YOUTUBE: PolyMatter"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCBa659QWEk1AI4Tg--mrJ2A "~YOUTUBE: TomScott"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCdUcjkyZtf-1WJyPPiETF1g "~YOUTUBE: ITSUB/잇섭"
+----ENTERTAINMENT---
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2_VPutZK0o_tG8ca_QrQRA "~YOUTUBE: 김도랜드"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2z7Vj0qpcjIsAEHwOE1-NA "~YOUTUBE: 나나양"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCs1R9zP6rH2GlTNHUI5SBkw "~YOUTUBE: 승우아빠 일상채널"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCTjjSMm2BJKFchuQyM5WQKA "~YOUTUBE: Desbug"
 --------------------
 -------GITHUB-------
 --------------------
 https://github.com/alacritty/alacritty/releases.atom "~GITHUB: Alacritty"
 https://github.com/mun-lang/mun/releases.atom "~GITHUB: Mun"
 https://github.com/ron-rs/ron/releases.atom "~GITHUB: Ron"
+--------------------
+-------TWITTER------
+--------------------
+https://nitter.net/system76/rss "~TWITTER: System 76"
+https://nitter.net/RustTrending/rss "~TWITTER: Rust Trending"
+https://nitter.net/rust_gamedev/rss "~TWITTER: Rust GameDev"
+https://nitter.net/itsfoss2/rss "~TWITTER: It's Foss"
+https://nitter.net/gnome/rss "~TWITTER: Gnome"
+https://nitter.net/LinusTech/rss "~TWITTER: LTT"

@@ -1,0 +1,37 @@
+#general settings
+auto-reload yes
+max-items 50
+
+#external browser
+browser "/usr/bin/w3m %u"
+macro m set browser "/usr/bin/mpv %u"; open-in-browser ; set browser "/usr/local/bin/w3m %u"
+macro l set browser "/usr/bin/firefox %u"; open-in-browser ; set browser "/usr/local/bin/w3m %u"
+
+# unbind keys
+unbind-key j
+unbind-key k
+unbind-key J
+unbind-key K
+
+# bind keys - vim style
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit
+
+# colors
+color background          color229   default
+color listnormal          color229   default
+color listnormal_unread   color229   default
+color listfocus           color229   color61 bold
+color listfocus_unread    color229   color61 bold
+color info                color247   color235
+color article             color229   default
+
+# highlights
+highlight article "^(Feed|Link):.*$" color46 default bold
+highlight article "^(Title|Date|Author):.*$" color39 default bold
+highlight article "https?://[^ ]+" color46 default underline
+highlight article "\\[[0-9]+\\]" color63 default bold
+highlight article "\\[image\\ [0-9]+\\]" color63 default bold
+highlight feedlist "^─.*$" color61 color235 bold
