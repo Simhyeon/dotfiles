@@ -1,0 +1,4 @@
+#/bin/bash
+
+ADDR=$(xclip -o -selection c)
+! [ -z "$ADDR" ] && mpv $ADDR >/dev/null 2>&1
