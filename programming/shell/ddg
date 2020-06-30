@@ -1,3 +1,34 @@
 #!/bin/bash
 
-echo $@ | awk -v q="'" -F":" '{if($2 != "") {print q "!" $1 " " $2 q} else {print q $1 q} }' | xargs -r brs -s 
+set -e
+set -u
+set -o pipefail
+
+open_arg="-o t"
+CLIPBOARD=false
+while getopts 'wtc' OPTION; do
+	case "$OPTION" in
+		t)
+			open_arg="-o t"
+			;;
+		w)
+			open_arg="-o w"
+			;;
+		c)
+			CLIPBOARD=true
+			;;
+	esac
+done
+shift "$(($OPTIND -1))"
+
+if [ $CLIPBOARD = true ]; then
+	ARGS=$(xclip -o -selection c)
+	ARGS="$open_arg ${ARGS}"
+	echo $ARGS | xargs -r brs -a
+else
+	ARGS=$(echo $@ | awk -v q="'" -F":" '{if($2 != "") {print q "!" $1 " " $2 q} else {print q $1 q} }')
+	ARGS="${ARGS} $open_arg"
+	echo $ARGS | xargs -r brs -s 
+fi
+
+#ARGS=$(echo $@ | awk -v q="'" -F":" '{if($2 != "") {print q "!" $1 " " $2 q} else {print q $1 q} }')

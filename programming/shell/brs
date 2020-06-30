@@ -13,8 +13,12 @@ list=false
 link=false
 search=false
 opentype=-new-tab
-while getopts 'lo:u:s:p' OPTION; do
+direct=false
+while getopts 'alo:u:s:p' OPTION; do
 	case "$OPTION" in
+		a)
+			direct=true
+			;;
 		l)
 			list=true
 			;;
@@ -40,6 +44,7 @@ done
 
 shift "$(($OPTIND -1))"
 # if($1 == u)
+[ $direct = true ] && $BROWSER $opentype $1 && exit 0 
 [ $list = true ] && awk -F"|" '{print $1}' $BRSFILE  && exit 0
 [ $link = true ] && awk -v u="$url" -F"|" '{ if($1 == u) {print $2}}' $BRSFILE | xargs -r $BROWSER $opentype && exit 0
 [ $search = true ] && $BROWSER $opentype "https://duckduckgo.com/?q=$keyword"
