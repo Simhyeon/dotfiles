@@ -23,9 +23,9 @@ while getopts 'alo:u:s:p' OPTION; do
 			list=true
 			;;
 		o)
-			if [ "$OPTARG" == "t" ]; then
+			if [ "$OPTARG" == "tab" ]; then
 				opentype=-new-tab
-			elif [ "$OPTARG" == "w" ]; then
+			elif [ "$OPTARG" == "window" ]; then
 				opentype=-new-window
 			fi
 			;;

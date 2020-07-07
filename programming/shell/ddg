@@ -6,16 +6,20 @@ set -o pipefail
 
 open_arg="-o t"
 CLIPBOARD=false
-while getopts 'wtc' OPTION; do
+ADDRESS=false
+while getopts 'wtca' OPTION; do
 	case "$OPTION" in
 		t)
-			open_arg="-o t"
+			open_arg="-o tab"
 			;;
 		w)
-			open_arg="-o w"
+			open_arg="-o window"
 			;;
 		c)
 			CLIPBOARD=true
+			;;
+		a)
+			ADDRESS=true
 			;;
 	esac
 done
@@ -25,10 +29,17 @@ if [ $CLIPBOARD = true ]; then
 	ARGS=$(xclip -o -selection c)
 	ARGS="$open_arg ${ARGS}"
 	echo $ARGS | xargs -r brs -a
-else
-	ARGS=$(echo $@ | awk -v q="'" -F":" '{if($2 != "") {print q "!" $1 " " $2 q} else {print q $1 q} }')
-	ARGS="${ARGS} $open_arg"
-	echo $ARGS | xargs -r brs -s 
+	exit 0
 fi
+
+if [ $ADDRESS = true ]; then
+	ARGS="$open_arg $1"
+	echo $ARGS | xargs -r brs -a
+	exit 0
+fi
+
+ARGS=$(echo $@ | awk -v q="'" -F":" '{if($2 != "") {print q "!" $1 " " $2 q} else {print q $1 q} }')
+ARGS="${ARGS} $open_arg"
+echo $ARGS | xargs -r brs -s 
 
 #ARGS=$(echo $@ | awk -v q="'" -F":" '{if($2 != "") {print q "!" $1 " " $2 q} else {print q $1 q} }')
