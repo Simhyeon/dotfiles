@@ -1,0 +1,15 @@
+#!/bin/sh
+
+
+while true
+do
+	#MEMORY=$(free -m | /usr/bin/grep Mem | awk '{print "("$3"/"$2")"}')
+	VOLUME=$(pamixer --get-volume)
+	BRIGHTNESS=$(xbacklight -get)
+	CHARGE=$(cat /sys/class/power_supply/BAT0/capacity) 
+	DATE=$(date "+%m-%d - %H:%M")
+	
+	STATUS="[VOL: $VOLUME%] [BRT: $BRIGHTNESS%] [BATT: $CHARGE%] [$DATE]"
+	xsetroot -name "$STATUS"
+	sleep 1
+done
