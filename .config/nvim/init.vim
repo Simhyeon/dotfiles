@@ -24,7 +24,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'yuki-ycino/fzf-preview.vim'
+Plug 'yuki-ycino/fzf-preview.vim', { 'do': ':FzfPreviewInstall' }
 " Plug 'OmniSharp/omnisharp-vim'
 Plug 'dense-analysis/ale'
 call plug#end()
@@ -98,8 +98,10 @@ let g:livedown_browser = "firefox"
 " toggle nerd tree
 map <silent> <C-n> :NERDTreeToggle<CR>
 
-" toggle vista ctags
+" ---------------------------------------------------------------------------------------------
+"  FzfPreview Settings
 map <silent> <C-f> :FzfPreviewDirectoryFiles<CR>
+
 " ---------------------------------------------------------------------------------------------
 " Coc Setting
 let g:coc_global_extensions = [

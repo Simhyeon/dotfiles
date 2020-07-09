@@ -1,6 +1,9 @@
 --------------------
 ------NEWSFEED------
 --------------------
+https://distrowatch.com/news/dw.xml "~NEWSFEED: DistroWatch"
+https://www.linux.com/atom "~NEWSFEED: Linux.com"
+https://www.cyberciti.biz/atom/atom.xml "~NEWSFEED: NixCraft"
 http://feeds.feedburner.com/itsfoss "~NEWSFEED: It's foss"
 http://feeds.arstechnica.com/arstechnica/technology-lab "~NEWSFEED: Ars technica"
 https://feeds.feedburner.com/fossbytes "~NEWSFEED: Fossbtye"
