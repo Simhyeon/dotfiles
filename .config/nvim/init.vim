@@ -100,7 +100,8 @@ map <silent> <C-n> :NERDTreeToggle<CR>
 
 " ---------------------------------------------------------------------------------------------
 "  FzfPreview Settings
-map <silent> <C-f> :FzfPreviewDirectoryFiles<CR>
+map <silent> <C-f> :FzfPreviewProjectFiles<CR>
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 " ---------------------------------------------------------------------------------------------
 " Coc Setting
