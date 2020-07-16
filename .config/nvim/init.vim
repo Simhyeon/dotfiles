@@ -4,6 +4,7 @@ Plug 'ap/vim-css-color'
 Plug 'junegunn/seoul256.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'rust-lang/rust.vim'
+Plug 'ron-rs/ron.vim'
 Plug 'lervag/vimtex'
 Plug 'timonv/vim-cargo'
 Plug 'udalov/kotlin-vim'
@@ -23,8 +24,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'yuki-ycino/fzf-preview.vim', { 'do': ':FzfPreviewInstall' }
-" Plug 'OmniSharp/omnisharp-vim'
+Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release' }
 Plug 'dense-analysis/ale'
 call plug#end()
 
@@ -104,7 +104,7 @@ map <silent> <C-n> :NERDTreeToggle<CR>
 
 " ---------------------------------------------------------------------------------------------
 "  FzfPreview Settings
-map <silent> <C-f> :FzfPreviewProjectFiles<CR>
+map <silent> <C-f> :CocCommand fzf-preview.ProjectFiles<CR>
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 " ---------------------------------------------------------------------------------------------
@@ -348,44 +348,6 @@ nnoremap <silent> <C-q> :q<CR>
 command! -bang -nargs=* Ag call fzf#vim#ag_interactive(<q-args>, fzf#vim#with_preview('right:50%:hidden', 'alt-h'))
 command! -bang -nargs=* Rg call fzf#vim#rg_interactive(<q-args>, fzf#vim#with_preview('right:50%:hidden', 'alt-h'))
 
-
-"-------------------------------------------------------------
-" csharp omnisharp config and ale config
-filetype indent plugin on
-
-" Timeout in seconds to wait for a response from the server
-let g:OmniSharp_timeout = 5
-set previewheight=5
-
-let g:ale_linters = { 'cs': ['OmniSharp'] }
-let g:OmniSharp_highlight_types = 3
-let g:OmniSharp_server_stdio = 1
-
-augroup omnisharp_commands
-	autocmd!
-	" Show documentaiton for cursor hold
-	" autocmd CursorHold *.cs call OmniSharp#TypeLookupWithoutDocumentation()
-	    " The following commands are contextual, based on the cursor position.
-    autocmd FileType cs nnoremap <buffer> gd :OmniSharpGotoDefinition<CR>
-    autocmd FileType cs nnoremap <buffer> <Leader>fi :OmniSharpFindImplementations<CR>
-    autocmd FileType cs nnoremap <buffer> <Leader>fs :OmniSharpFindSymbol<CR>
-    autocmd FileType cs nnoremap <buffer> <Leader>fu :OmniSharpFindUsages<CR>
-
-	autocmd FileType cs nnoremap <buffer> <Leader>dc :OmniSharpDocumentation<CR>
-augroup END
-
-" Contextual code actions (uses fzf, CtrlP or unite.vim when available)
-nnoremap <Leader><Space> :OmniSharpGetCodeActions<CR>
-" Run code actions with text selected in visual mode to extract method
-xnoremap <Leader><Space> :call OmniSharp#GetCodeActions('visual')<CR>
-
-" Rename with dialog
-nnoremap <Leader>nm :OmniSharpRename<CR>
-nnoremap <Leader>orn :OmniSharpRename<CR>
-" Rename without dialog - with cursor on the symbol to rename: `:Rename newname`
-command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
-
-nnoremap <Leader>cf :OmniSharpCodeFormat<CR>
 "-------------------------------------------------------------
 " NerdTree Configs
 "
