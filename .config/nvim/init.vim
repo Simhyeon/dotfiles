@@ -1,7 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'ap/vim-css-color'
-Plug 'morhetz/gruvbox'
 Plug 'junegunn/seoul256.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'rust-lang/rust.vim'
@@ -53,7 +52,7 @@ let g:seoul256_background = 256
 " highlight MatchParen cterm=none ctermbg=green ctermfg=blue
 highlight Comment ctermfg=grey cterm=italic
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 nmap <silent> <F6> :NERDTreeToggle<CR>
 nmap <silent> <F8> :Vista!!<CR>
 
@@ -61,7 +60,7 @@ nmap <silent> <F8> :Vista!!<CR>
 " let g:loaded_matchparen=1
 
 " airline theme
-let g:airline_theme='zenburn'
+let g:airline_theme='seoul256'
 set hidden
 
 "gruvbox speicfic configs
@@ -80,6 +79,11 @@ augroup END
 
 " remove background color
 hi Normal guibg=NONE ctermbg=NONE
+
+
+" ---------------------------------------------------------------------------------------------
+  
+" ---------------------------------------------------------------------------------------------
 
 " ---------------------------------------------------------------------------------------------
 " UltiSnips
@@ -112,7 +116,6 @@ let g:coc_global_extensions = [
   \ 'coc-eslint', 
   \ 'coc-prettier', 
   \ 'coc-json', 
-  \ 'coc-rls', 
   \ ]
 
 " Some servers have issues with backup files, see #649
@@ -387,8 +390,8 @@ nnoremap <Leader>cf :OmniSharpCodeFormat<CR>
 " NerdTree Configs
 "
 " UI Settings
-let NERDTreeMinimalUI=1    " Start NERDTree in minimal UI mode (No help lines)
-let NERDTreeDirArrows=1    " Display arrows instead of ascii art in NERDTree
+" let NERDTreeMinimalUI=1    " Start NERDTree in minimal UI mode (No help lines)
+" let NERDTreeDirArrows=1    " Display arrows instead of ascii art in NERDTree
 
 "-------------------------------------------------------------
 " LaTex option
