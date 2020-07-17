@@ -18,10 +18,11 @@
 ! 11. <S>				for Asterisk
 ! 12. <D>				for Dollar
 ! 13. <F>				for Percentage
-! 14. <E>				for at
-! 15. <W>				for numbersign
+! 14. <E>				for numbersign
+! 15. <W>				for at
 ! 16. <Z>				for minus
 ! 17. <X>				for equal
+! 18. <B>				for F6
 ! --------------<DESCRIPTION/>------------------
 ! Alt_L -> Mode_switch
 ! You should clear special key you want to change bofore assigning 
@@ -53,6 +54,7 @@ keycode 26 = e E numbersign
 keycode 25 = w W at
 keycode 52 = z Z minus
 keycode 53 = x X equal
+keycode 56 = b B F6
 ! and after assinging you sould assign functionatly again
 ! Still doesn't get about the mechanism in here, but it works anyway... so yeah
 add lock = Caps_Lock
