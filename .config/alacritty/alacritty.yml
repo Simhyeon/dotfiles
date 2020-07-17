@@ -94,15 +94,15 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: D2Coding ligature
-    style: Bold
+    family: D2CodingBold Nerd Font
+    style: Regualr
   bold:
-    family: D2Coding ligature
-    style: Bold
+    family: D2CodingBold Nerd Font
+    style: Regular
   italic:
-    family: D2Coding ligature
+    family: D2CodingBold Nerd Font
     style: Italic
-  size: 14.0
+  size: 16.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
