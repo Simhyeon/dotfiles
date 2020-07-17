@@ -1,15 +1,6 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
 export ZSH="/home/simon/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
-#ZSH_THEME="classyTouch"
 
 # BULLETTRAIN VARIABLES
 #BULLETTRAIN_PROMPT_ORDER=(
@@ -20,11 +11,6 @@ ZSH_THEME="robbyrussell"
 #BULLETTRAIN_CONTEXT_FG="white"
 #BULLETTRAIN_DIR_BG="cyan"
 #BULLETTRAIN_DIR_FG="black"
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -82,23 +68,6 @@ plugins=(git rust cargo)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
 #alias
 alias cl='clear'
 alias lch='firefox http://localhost:8080'
@@ -128,8 +97,11 @@ alias dfi='/usr/bin/git --git-dir=$HOME/misc/dotfiles --work-tree=$HOME'
 alias bandwhich='sudo $HOME/.cargo/bin/bandwhich'
 alias toodr='ssh odroid@odroid.local'
 alias lpandoc='pandoc --pdf-engine=lualatex'
+alias tmux='tmux -f ~/.config/.tmux.conf'
 
 # git aliases
+alias gs='git status'
+alias gd='git diff'
 alias ga='git add'
 alias gcm='git commit -m'
 alias gp='git push'
