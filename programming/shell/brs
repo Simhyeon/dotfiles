@@ -44,7 +44,7 @@ done
 
 shift "$(($OPTIND -1))"
 # if($1 == u)
-[ $direct = true ] && $BROWSER $opentype $1 && exit 0 
+[ $direct = true ] && $BROWSER $opentype $@ && exit 0 
 [ $list = true ] && awk -F"|" '{print $1}' $BRSFILE  && exit 0
 [ $link = true ] && awk -v u="$url" -F"|" '{ if($1 == u) {print $2}}' $BRSFILE | xargs -r $BROWSER $opentype && exit 0
 [ $search = true ] && $BROWSER $opentype "https://duckduckgo.com/?q=$keyword"
