@@ -101,6 +101,8 @@ alias toodr='ssh odroid@odroid.local'
 alias lpandoc='pandoc --pdf-engine=lualatex'
 alias tmux='tmux -f ~/.config/.tmux.conf'
 
+alias mpvris='mpv --script=/usr/local/include/mpris.so --no-video'
+
 # git aliases
 alias gs='git status'
 alias gd='git diff'
