@@ -1,4 +1,14 @@
 #/bin/bash
 
+MPRISPATH=/usr/local/include/mpris.so
+
 ADDR=$(xclip -o -selection c)
-! [ -z "$ADDR" ] && mpv $ADDR >/dev/null 2>&1
+if ! [ -z "$ADDR" ]
+then
+	if [ "$1" = "-m" ]
+	then
+		mpv --script=$MPRISPATH --no-video $ADDR # >/dev/null 2>&1
+	else
+		mpv $ADDR # >/dev/null 2>&1
+	fi
+fi
