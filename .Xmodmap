@@ -23,7 +23,7 @@
 ! 10. <M>				for Page down or Next key
 ! 11. <Q>				for Backslash
 ! 12. <W>				for Slash
-! 13. <E>				for question mark
+! 13. <E>				for Equal
 ! 14. <R>				for period
 ! 15. <A>				for Ampersand
 ! 16. <S>				for Asterisk
@@ -71,7 +71,7 @@ keycode 10 = 1 				exclam 		exclam
 keycode 11 = 2 				at 			at
 keycode 12 = 3 				numbersign 	numbersign
 keycode 56 = b 				B 			F6
-keycode 26 = e 				E 			question
+keycode 26 = e 				E 			equal
 keycode 27 = r 				R 			period
 keycode 18 = 9 				parenleft 	less 			braceleft
 keycode 19 = 0 				parenright 	greater 		braceright
