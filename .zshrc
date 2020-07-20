@@ -95,6 +95,7 @@ alias xc='xclip -selection c'
 alias dud='du -sh .'
 alias dfi='/usr/bin/git --git-dir=$HOME/misc/dotfiles --work-tree=$HOME'
 alias dfipull='/usr/bin/git --git-dir=$HOME/misc/dotfiles --work-tree=$HOME pull && rm -f $HOME/readme.md $HOME/keyboard_layout.png'
+
 alias bandwhich='sudo $HOME/.cargo/bin/bandwhich'
 alias toodr='ssh odroid@odroid.local'
 alias lpandoc='pandoc --pdf-engine=lualatex'
