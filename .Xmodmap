@@ -41,10 +41,8 @@
 ! Clear special keys and reassign
 clear lock 
 clear mod1
-clear shift
 keycode 64 = Mode_switch 
 keycode 66 = Alt_L 
-keycode 62 = Caps_Lock
 
 ! Set custom key mapping
 ! Key code mapping table's format is in the next line.
@@ -83,7 +81,6 @@ keycode 19 = 0 				parenright 	greater 		braceright
 ! Still doesn't get about the mechanism in here, but it works anyway... so yeah
 add lock = Caps_Lock
 add mod1 = Alt_L Alt_R
-add shift = Shift_L Shift_R
 
 
 ! Table of keycode(number) and keysms(name)
