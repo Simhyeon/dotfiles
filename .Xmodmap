@@ -1,68 +1,141 @@
 ! --------------<DESCRIPTION>-------------------
-! Keep in mind that my xmodmap is some clunky result of searching my keymapping so definitely not a neat solution
+! Keep in mind that my xmodmap is some clunky result of searching my keymapping so definitely not a neat solution.
 ! I'm changing left alt key to mode switch and caps lock to alt key becuase who uses caps lock anyway just press the good ol' shift
 ! Every keyname is represented as capital but not the capital in real use.
-! n. <keyname> 			for <explanation>
-! 0. <Alt_L>			for Moe_switch key
-! 1. <Caps_Lock>		for Alt_L key
-! 2. <H> 				for home
-! 3. <Colon>(;) 		for end
-! 4. <i, j, k, l> 		for (up, left, down, right) respectively
-! 5. <Y> 				for Esc or escape key
-! 6. <U>				for Backspace key
-! 7. <O>				for Delete key
-! 8. <N>				for Pageup for prior key
-! 9. <M>				for Page down for Next key
-! 10. <Q>				for Backslash
-! 11. <W>				for Slash
-! 12. <E>				for question mark
-! 13. <R>				for period
-! 14. <A>				for Ampersand
-! 15. <S>				for Asterisk
-! 16. <D>				for Dollar
-! 17. <F>				for Percentage
-! 18. <1>				for exclamation mark
-! 19. <2>				for at
-! 20. <3>				for numbersign
-! 21. <B>				for F6
-! 22. <(, )>			for < and >, with shift key then { and }
+! If you want to change xmodmap by your flavor refer to the table in the bottom of this file.
+! Also Arch wiki is a great resource.
+! https://wiki.archlinux.org/index.php/Xmodmap
+!
+! Keycode can be detected with xev command just open up your terminal and type xev to find out.
+!
+! Below is a short description for my keymappings
+! n.  <keyname> 		for <explanation>
+! 0.  <Alt_L>			for Mode_switch key
+! 1.  <Caps_Lock>		for Alt_L key
+! 2.  <Shift_R>			for Caps_Lock
+! 3.  <H> 				for home
+! 4.  <Colon>(;) 		for end
+! 5.  <i, j, k, l> 		for (up, left, down, right) respectively
+! 6.  <Y> 				for Esc or escape key
+! 7.  <U>				for Backspace key
+! 8.  <O>				for Delete key
+! 9.  <N>				for Pageup or prior key
+! 10. <M>				for Page down or Next key
+! 11. <Q>				for Backslash
+! 12. <W>				for Slash
+! 13. <E>				for question mark
+! 14. <R>				for period
+! 15. <A>				for Ampersand
+! 16. <S>				for Asterisk
+! 17. <D>				for Dollar
+! 18. <F>				for Percentage
+! 19. <1>				for exclamation mark
+! 20. <2>				for at
+! 21. <3>				for numbersign
+! 22. <B>				for F6
+! 23. <(, )>			for less(<) and greater(>), with shift key then left bracket({) and right bracket (})
 ! --------------<DESCRIPTION/>------------------
-! Alt_L -> Mode_switch
+!
 ! You should clear special key you want to change bofore assigning 
-! mod1 means Alt_L of keysyms for example
-! Btw, keycode can be detected with xev command just open up your terminal and type xev to find out.
-! Key code mapping table's format is followed by ...
-! keycode <number> = <normal key> <key pressed with shift> <key pressed with mode switch> <key pressed with shift and mode switch>
+!
+! Clear special keys and reassign
 clear lock 
 clear mod1
-keycode 64 = Mode_switch
+clear shift
+keycode 64 = Mode_switch 
 keycode 66 = Alt_L 
-keycode 44 = j J Left
-keycode 45 = k K Down
-keycode 31 = i I Up
-keycode 46 = l L Right
-keycode 30 = u U BackSpace
-keycode 32 = o O Delete
-keycode 43 = h H Home
-keycode 29 = y Y Escape
-keycode 47 = semicolon colon End
-keycode 57 = n N Prior
-keycode 58 = m M Next
-keycode 24 = q Q backslash
-keycode 25 = w W slash
-keycode 38 = a A ampersand
-keycode 39 = s S asterisk
-keycode 40 = d D dollar
-keycode 41 = f F percent
-keycode 10 = 1 exclam exclam
-keycode 11 = 2 at at
-keycode 12 = 3 numbersign numbersign
-keycode 56 = b B F6
-keycode 26 = e E question
-keycode 27 = r R period
-keycode 18 = 9 parenleft less braceleft
-keycode 19 = 0 parenright greater braceright
+keycode 62 = Caps_Lock
+
+! Set custom key mapping
+! Key code mapping table's format is in the next line.
+! keycode <number> = <normal key> <key pressed with shift> <key pressed with mode switch> <key pressed with shift and mode switch>
+! --------------------------------------------------------------------
+! keycode	|normal			|shift		|mode key		|mode+ shift
+! --------------------------------------------------------------------
+keycode 44 = j 				J 			Left
+keycode 45 = k 				K 			Down
+keycode 31 = i 				I 			Up
+keycode 46 = l 				L 			Right
+keycode 30 = u 				U 			BackSpace
+keycode 32 = o 				O 			Delete
+keycode 43 = h 				H 			Home
+keycode 29 = y 				Y 			Escape
+keycode 47 = semicolon 		colon 		End
+keycode 57 = n 				N 			Prior
+keycode 58 = m 				M 			Next
+keycode 24 = q 				Q 			backslash
+keycode 25 = w 				W 			slash
+keycode 38 = a 				A 			ampersand
+keycode 39 = s 				S 			asterisk
+keycode 40 = d 				D 			dollar
+keycode 41 = f 				F 			percent
+keycode 10 = 1 				exclam 		exclam
+keycode 11 = 2 				at 			at
+keycode 12 = 3 				numbersign 	numbersign
+keycode 56 = b 				B 			F6
+keycode 26 = e 				E 			question
+keycode 27 = r 				R 			period
+keycode 18 = 9 				parenleft 	less 			braceleft
+keycode 19 = 0 				parenright 	greater 		braceright
+! --------------------------------------------------------------------
+
 ! and after assinging you sould assign functionatly again
 ! Still doesn't get about the mechanism in here, but it works anyway... so yeah
 add lock = Caps_Lock
 add mod1 = Alt_L Alt_R
+add shift = Shift_L Shift_R
+
+
+! Table of keycode(number) and keysms(name)
+! --------------------------------------------------------------------
+! keycode	|normal			|shift		|mode key		|mode+ shift
+! --------------------------------------------------------------------
+! keycode 10 = 1			exclam
+! keycode 11 = 2			at
+! keycode 12 = 3			numbersign
+! keycode 13 = 4			dollar
+! keycode 14 = 5			percent
+! keycode 15 = 6			asciicircum
+! keycode 16 = 7			ampersand
+! keycode 17 = 8			asterisk
+! keycode 18 = 9			parenleft
+! keycode 19 = 0			parenright
+! keycode 20 = minus		underscore
+! keycode 21 = equal		plus
+! keycode 22 = BackSpace		
+! keycode 23 = Tab		
+! keycode 24 = q			Q
+! keycode 25 = w			W
+! keycode 26 = e			E
+! keycode 27 = r			R
+! keycode 28 = t			T
+! keycode 29 = y			Y
+! keycode 30 = u			U
+! keycode 31 = i			I
+! keycode 32 = o			O
+! keycode 33 = p			P
+! keycode 34 = bracketleft	braceleft
+! keycode 35 = bracketright	braceright
+! keycode 51 = backslash	bar
+! keycode 38 = a			A
+! keycode 39 = s			S
+! keycode 40 = d			D
+! keycode 41 = f			F
+! keycode 42 = g			G
+! keycode 43 = h			H
+! keycode 44 = j			J
+! keycode 45 = k			K
+! keycode 46 = l			L
+! keycode 47 = semicolon	colon
+! keycode 48 = apostrophe	quotedbl
+! keycode 36 = Return		
+! keycode 52 = z			Z
+! keycode 53 = x			X
+! keycode 54 = c			C
+! keycode 55 = v			V
+! keycode 56 = b			B
+! keycode 57 = n			N
+! keycode 58 = m			M
+! keycode 59 = comma		less
+! keycode 60 = period		greater
+! keycode 61 = slash		question
