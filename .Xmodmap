@@ -4,25 +4,28 @@
 ! Every keyname is represented as capital but not the capital in real use.
 ! n. <keyname> 			for <explanation>
 ! 0. <Alt_L>			for Moe_switch key
-! 1. <H> 				for home
-! 2. <Colon>(;) 		for end
-! 3. <i, j, k, l> 		for (up, left, down, right) respectively
-! 4. <Y> 				for Esc or escape key
-! 5. <U>				for Backspace key
-! 6. <O>				for Delete key
-! 7. <Q>				for Backslash
+! 1. <Caps_Lock>		for Alt_L key
+! 2. <H> 				for home
+! 3. <Colon>(;) 		for end
+! 4. <i, j, k, l> 		for (up, left, down, right) respectively
+! 5. <Y> 				for Esc or escape key
+! 6. <U>				for Backspace key
+! 7. <O>				for Delete key
 ! 8. <N>				for Pageup for prior key
-! 8. <M>				for Page down for Next key
-! 9. <Caps_Lock>		for Alt_L key
-! 10. <A>				for Ampersand
-! 11. <S>				for Asterisk
-! 12. <D>				for Dollar
-! 13. <F>				for Percentage
-! 14. <E>				for numbersign
-! 15. <W>				for at
-! 16. <Z>				for minus
-! 17. <X>				for equal
-! 18. <B>				for F6
+! 9. <M>				for Page down for Next key
+! 10. <Q>				for Backslash
+! 11. <W>				for Slash
+! 12. <E>				for question mark
+! 13. <R>				for period
+! 14. <A>				for Ampersand
+! 15. <S>				for Asterisk
+! 16. <D>				for Dollar
+! 17. <F>				for Percentage
+! 18. <1>				for exclamation mark
+! 19. <2>				for at
+! 20. <3>				for numbersign
+! 21. <B>				for F6
+! 22. <(, )>			for < and >, with shift key then { and }
 ! --------------<DESCRIPTION/>------------------
 ! Alt_L -> Mode_switch
 ! You should clear special key you want to change bofore assigning 
@@ -33,6 +36,7 @@
 clear lock 
 clear mod1
 keycode 64 = Mode_switch
+keycode 66 = Alt_L 
 keycode 44 = j J Left
 keycode 45 = k K Down
 keycode 31 = i I Up
@@ -45,16 +49,19 @@ keycode 47 = semicolon colon End
 keycode 57 = n N Prior
 keycode 58 = m M Next
 keycode 24 = q Q backslash
-keycode 66 = Alt_L
+keycode 25 = w W slash
 keycode 38 = a A ampersand
 keycode 39 = s S asterisk
 keycode 40 = d D dollar
 keycode 41 = f F percent
-keycode 26 = e E numbersign
-keycode 25 = w W at
-keycode 52 = z Z minus
-keycode 53 = x X equal
+keycode 10 = 1 exclam exclam
+keycode 11 = 2 at at
+keycode 12 = 3 numbersign numbersign
 keycode 56 = b B F6
+keycode 26 = e E question
+keycode 27 = r R period
+keycode 18 = 9 parenleft less braceleft
+keycode 19 = 0 parenright greater braceright
 ! and after assinging you sould assign functionatly again
 ! Still doesn't get about the mechanism in here, but it works anyway... so yeah
 add lock = Caps_Lock
