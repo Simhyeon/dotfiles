@@ -7,9 +7,10 @@ do
 	BRIGHTNESS=$(xbacklight -get)
 	CHARGE="$(cat /sys/class/power_supply/BAT0/capacity)%"
 	[ "$(cat /sys/class/power_supply/BAT0/status)" == "Charging" ] && CHARGE="${CHARGE}C"
+	CUSER="$(whoami)"
 	DATE=$(date "+%m-%d - %H:%M")
 	
-	STATUS="[NET: $NETWORK] [VOL: $VOLUME%] [BRT: $BRIGHTNESS%] [BATT: $CHARGE] [$DATE]"
+	STATUS="[NET: $NETWORK] [VOL: $VOLUME%] [BRT: $BRIGHTNESS%] [BATT: $CHARGE] [$CUSER] [$DATE]"
 	xsetroot -name "$STATUS"
 	sleep 10
 done
