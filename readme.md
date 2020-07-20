@@ -8,7 +8,7 @@ Most of the config files are common things or easy to find. So with readme I'll 
 
 ### Xmodmap
 
-![Xmodmap Layout](keyboard_layout.png)
+![Xmodmap Layout](keyboard_layout_new.png)
 
 * Keycodes (Every key represents output of **[Mod key + keycode]** )
 	- 'Left\_Alt' : Mod\_key
