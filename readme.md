@@ -8,12 +8,11 @@ Most of the config files are common things or easy to find. So with readme I'll 
 
 ### Xmodmap
 
-![Xmodmap Layout](keyboard_layout_new.png)
+![Xmodmap Layout](keyboard_layout.png)
 
 * Keycodes (Every key represents output of **[Mod key + keycode]** )
 	- 'Left\_Alt' : Mod\_key
 	- 'Caps\_Lock' : Left\_Alt
-	- 'Shift\_R' : Caps_Lock
 	- '1' : !
 	- '2' : @
 	- '3' : #
@@ -37,3 +36,5 @@ Most of the config files are common things or easy to find. So with readme I'll 
 	- 'b' : \<F6>
 	- 'n' : \<PageUp>
 	- 'm' : \<PageDown
+	- '(' : < and {
+	- ')' : > and }
