@@ -22,9 +22,9 @@
 ! 9.  <N>				for Pageup or prior key
 ! 10. <M>				for Page down or Next key
 ! 11. <Q>				for Backslash
-! 12. <W>				for Slash
-! 13. <E>				for Equal
-! 14. <R>				for period
+! 12. <W>				for Equal
+! 13. <E>				for Slash
+! 14. <R>				for underscore
 ! 15. <A>				for Ampersand
 ! 16. <S>				for Asterisk
 ! 17. <D>				for Dollar
@@ -62,7 +62,7 @@ keycode 47 = semicolon 		colon 		End
 keycode 57 = n 				N 			Prior
 keycode 58 = m 				M 			Next
 keycode 24 = q 				Q 			backslash
-keycode 25 = w 				W 			slash
+keycode 25 = w 				W 			equal
 keycode 38 = a 				A 			ampersand
 keycode 39 = s 				S 			asterisk
 keycode 40 = d 				D 			dollar
@@ -71,10 +71,11 @@ keycode 10 = 1 				exclam 		exclam
 keycode 11 = 2 				at 			at
 keycode 12 = 3 				numbersign 	numbersign
 keycode 56 = b 				B 			F6
-keycode 26 = e 				E 			equal
-keycode 27 = r 				R 			period
-keycode 18 = 9 				parenleft 	less 			braceleft
-keycode 19 = 0 				parenright 	greater 		braceright
+keycode 26 = e 				E 			slash
+keycode 27 = r 				R 			underscore
+keycode 52 = z				Z			minus
+keycode 18 = 9 				parenleft 	less 			
+keycode 19 = 0 				parenright 	greater 		
 ! --------------------------------------------------------------------
 
 ! and after assinging you sould assign functionatly again
