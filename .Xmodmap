@@ -12,7 +12,7 @@
 ! n.  <keyname> 		for <explanation>
 ! 0.  <Alt_L>			for Mode_switch key
 ! 1.  <Caps_Lock>		for Alt_L key
-! 2.  <Shift_R>			for Caps_Lock
+! 2.  <P>				for Plus
 ! 3.  <H> 				for home
 ! 4.  <Colon>(;) 		for end
 ! 5.  <i, j, k, l> 		for (up, left, down, right) respectively
@@ -33,7 +33,10 @@
 ! 20. <2>				for at
 ! 21. <3>				for numbersign
 ! 22. <B>				for F6
-! 23. <(, )>			for less(<) and greater(>), with shift key then left bracket({) and right bracket (})
+! 23. <(, )>			for less(<) and greater(>)
+! 24. <Z>				for Dash(-)
+! 25. <X>				for Dash(>)
+! 26. <C>				for Carret(^)
 ! --------------<DESCRIPTION/>------------------
 !
 ! You should clear special key you want to change bofore assigning 
@@ -50,6 +53,7 @@ keycode 66 = Alt_L
 ! --------------------------------------------------------------------
 ! keycode	|normal			|shift		|mode key		|mode+ shift
 ! --------------------------------------------------------------------
+keycode 33 = p 				P 			plus
 keycode 44 = j 				J 			Left
 keycode 45 = k 				K 			Down
 keycode 31 = i 				I 			Up
@@ -74,6 +78,8 @@ keycode 56 = b 				B 			F6
 keycode 26 = e 				E 			slash
 keycode 27 = r 				R 			underscore
 keycode 52 = z				Z			minus
+keycode 53 = x				X			greater
+keycode 54 = c				C			asciicircum
 keycode 18 = 9 				parenleft 	less 			
 keycode 19 = 0 				parenright 	greater 		
 ! --------------------------------------------------------------------
