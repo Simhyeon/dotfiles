@@ -63,10 +63,13 @@ keycode 32 = o 				O 			Delete
 keycode 43 = h 				H 			Home
 keycode 29 = y 				Y 			Escape
 keycode 47 = semicolon 		colon 		End
-keycode 57 = n 				N 			Prior
-keycode 58 = m 				M 			Next
+keycode 48 = apostrophe 	quotedbl	underscore
+keycode 57 = n 				N 			less
+keycode 58 = m 				M 			greater
 keycode 24 = q 				Q 			backslash
-keycode 25 = w 				W 			equal
+keycode 25 = w 				W 			minus
+keycode 26 = e 				E 			equal
+keycode 27 = r 				R 			asciitilde
 keycode 38 = a 				A 			ampersand
 keycode 39 = s 				S 			asterisk
 keycode 40 = d 				D 			dollar
@@ -75,20 +78,17 @@ keycode 10 = 1 				exclam 		exclam
 keycode 11 = 2 				at 			at
 keycode 12 = 3 				numbersign 	numbersign
 keycode 56 = b 				B 			F6
-keycode 26 = e 				E 			slash
-keycode 27 = r 				R 			underscore
-keycode 52 = z				Z			minus
-keycode 53 = x				X			greater
+keycode 52 = z				Z			0
+keycode 53 = x				X			1
 keycode 54 = c				C			asciicircum
-keycode 18 = 9 				parenleft 	less 			
-keycode 19 = 0 				parenright 	greater 		
+keycode 59 = comma			less		Prior
+keycode 60 = period			greater		Next
 ! --------------------------------------------------------------------
 
 ! and after assinging you sould assign functionatly again
 ! Still doesn't get about the mechanism in here, but it works anyway... so yeah
 add lock = Caps_Lock
 add mod1 = Alt_L Alt_R
-
 
 
 ! Table of keycode(number) and keysms(name)
