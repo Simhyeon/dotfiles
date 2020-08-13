@@ -63,26 +63,24 @@ keycode 32 = o 				O 			Delete
 keycode 43 = h 				H 			Home
 keycode 29 = y 				Y 			Escape
 keycode 47 = semicolon 		colon 		End
-keycode 48 = apostrophe 	quotedbl	underscore
-keycode 57 = n 				N 			less
-keycode 58 = m 				M 			greater
+keycode 57 = n 				N 			Prior
+keycode 58 = m 				M 			Next
 keycode 24 = q 				Q 			backslash
-keycode 25 = w 				W 			minus
+keycode 25 = w 				W 			underscore
 keycode 26 = e 				E 			equal
 keycode 27 = r 				R 			asciitilde
 keycode 38 = a 				A 			ampersand
 keycode 39 = s 				S 			asterisk
 keycode 40 = d 				D 			dollar
 keycode 41 = f 				F 			percent
-keycode 10 = 1 				exclam 		exclam
-keycode 11 = 2 				at 			at
-keycode 12 = 3 				numbersign 	numbersign
+keycode 10 = 1 				exclam 		grave
 keycode 56 = b 				B 			F6
-keycode 52 = z				Z			0
-keycode 53 = x				X			1
-keycode 54 = c				C			asciicircum
-keycode 59 = comma			less		Prior
-keycode 60 = period			greater		Next
+keycode 52 = z				Z			exclam
+keycode 53 = x				X			at
+keycode 54 = c				C			numbersign
+keycode 55 = v				V			asciicircum
+keycode 59 = comma			less		minus
+keycode 60 = period			greater		greater
 ! --------------------------------------------------------------------
 
 ! and after assinging you sould assign functionatly again
