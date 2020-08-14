@@ -110,6 +110,10 @@ alias ga='git add'
 alias gcm='git commit -m'
 alias gp='git push'
 
+# cargo aliases
+alias cgm='cargo make'
+alias cga='cargo add'
+
 # Read Bash_Profile which means reading paths
 
 if [ -f ~/.bash_profile ]; then 
