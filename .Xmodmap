@@ -66,7 +66,7 @@ keycode 47 = semicolon 		colon 		End
 keycode 57 = n 				N 			Prior
 keycode 58 = m 				M 			Next
 keycode 24 = q 				Q 			backslash
-keycode 25 = w 				W 			underscore
+keycode 25 = w 				W 			minus
 keycode 26 = e 				E 			equal
 keycode 27 = r 				R 			asciitilde
 keycode 38 = a 				A 			ampersand
@@ -79,7 +79,7 @@ keycode 52 = z				Z			exclam
 keycode 53 = x				X			at
 keycode 54 = c				C			numbersign
 keycode 55 = v				V			asciicircum
-keycode 59 = comma			less		minus
+keycode 59 = comma			less		underscore
 keycode 60 = period			greater		greater
 ! --------------------------------------------------------------------
 
