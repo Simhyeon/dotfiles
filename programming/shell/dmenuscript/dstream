@@ -3,7 +3,7 @@
 dir=$HOME/.config/dmenu_list
 sel=$(cat $dir/streamer_list | awk '{print $1}' | dmenu -i -p "Streamer")
 [ ! ${#sel} -ne 0 ] && echo "No Input" && exit 1
-[ $sel == "copy" ] && xclip -o -selection c | xargs vst 
+[ $sel == "copy" ] && xclip -o -selection c | xargs vst && exit 1
 str=$(awk -v asel=$sel '$1 == asel {print $2}' $dir/streamer_list)
 ! [ -x "$(command -v vst)" ] && echo "vst script is not found" && exit 1
 vst twitch.tv/$str

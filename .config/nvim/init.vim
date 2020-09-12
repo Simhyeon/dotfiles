@@ -1,8 +1,8 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'ap/vim-css-color'
-Plug 'junegunn/seoul256.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'morhetz/gruvbox'
 Plug 'rust-lang/rust.vim'
 Plug 'ron-rs/ron.vim'
 Plug 'lervag/vimtex'
@@ -14,10 +14,11 @@ Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
+Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'preservim/nerdcommenter'
 Plug 'liuchengxu/vista.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -44,10 +45,9 @@ set autoread
 syntax enable
 set mouse=a
 set termguicolors
-colorscheme seoul256
-colo seoul256
+colorscheme gruvbox
 set background=dark
-let g:seoul256_background = 256
+"let g:seoul256_background = 256
 
 " highlight MatchParen cterm=none ctermbg=green ctermfg=blue
 highlight Comment ctermfg=grey cterm=italic
@@ -60,7 +60,7 @@ nmap <silent> <F8> :Vista!!<CR>
 " let g:loaded_matchparen=1
 
 " airline theme
-let g:airline_theme='seoul256'
+let g:airline_theme='gruvbox'
 set hidden
 
 "gruvbox speicfic configs
@@ -349,6 +349,12 @@ command! -bang -nargs=* Ag call fzf#vim#ag_interactive(<q-args>, fzf#vim#with_pr
 command! -bang -nargs=* Rg call fzf#vim#rg_interactive(<q-args>, fzf#vim#with_preview('right:50%:hidden', 'alt-h'))
 
 "-------------------------------------------------------------
+" CPP highlight config
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+
+"-------------------------------------------------------------
 " NerdTree Configs
 "
 " UI Settings
@@ -378,3 +384,5 @@ map <Leader>th <C-w>t<C-w>H
 map <Leader>tk <C-w>t<C-w>K
 
 set fillchars+=vert:\ 
+
+
