@@ -114,6 +114,9 @@ alias gp='git push'
 alias cgm='cargo make'
 alias cga='cargo add'
 
+# openvpn
+alias vpn='sudo openvpn --config /etc/openvpn/client.conf'
+
 # Read Bash_Profile which means reading paths
 
 if [ -f ~/.bash_profile ]; then 
