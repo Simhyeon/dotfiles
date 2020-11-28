@@ -1,19 +1,7 @@
 {
+	"rust-analyzer.checkOnSave.enable": false,
+	"python.jediEnabled": true,
+	"python.jediPath": "/home/simon/.local/lib/python3.8/site-packages/jedi",
 	"diagnostic.checkCurrentLine": true,
-	"languageserver": {
-		"xml": {
-				"command": "java",
-				"args": ["-jar", "/home/simon/misc/lsp/lemminx/org.eclipse.lemminx/target/org.eclipse.lemminx-uber.jar"],
-				"filetypes": ["xml","xslt", "xsd"]
-		},
-		"kotlin": {
-			"command": "/home/simon/misc/lsp/kotlin-lsp/server/build/install/server/bin/kotlin-language-server",
-			"filetypes": ["kotlin"]
-		}
-	},
-	"clangd.arguments": [
-		"--compile-commands-dir=./build",
-		"--background-index",
-		"--completion-style=detailed"
-	]
+	"clangd.path": "/usr/bin/clangd-8"
 }
