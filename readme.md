@@ -10,14 +10,16 @@ Most of the config files are common things or easy to find. So with readme I'll 
 
 * Keycodes (Every key represents output of **[Mod key + keycode]** )
 	- 'Left\_Alt' : Mod\_key
-	- 'Caps\_Lock' : Left\_Alt
-	- '1' : !
-	- '2' : @
-	- '3' : #
-	- 'Q' : \
-	- 'w' : /
+	- 'Menu' : Left\_Alt
+	- 'z' : !
+	- 'x' : @
+	- 'c' : #
+	- 'v' : ^
+	- 'q' : \
+	- 'w' : -
 	- 'e' : =
-	- 'r' : .
+	- 'r' : ~
+	- 'b' : \<F6>
 	- 'a' : &
 	- 's' : *
 	- 'd' : $
@@ -33,6 +35,7 @@ Most of the config files are common things or easy to find. So with readme I'll 
 	- ';' : \<End>
 	- 'b' : \<F6>
 	- 'n' : \<PageUp>
-	- 'm' : \<PageDown
-	- '(' : < and {
-	- ')' : > and }
+	- 'm' : \<PageDown>
+	- ',' : _ or underscore
+	- '.' : \> or greater than
+	- ''' : grave
