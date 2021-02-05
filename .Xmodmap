@@ -36,6 +36,16 @@
 ! 23. <,>				for underscore
 ! 24. <.>				for greater than
 ! 25. <'>				for grave
+! 26. <Q + Shift>		for 1
+! 27. <W + Shift>		for 2
+! 28. <E + Shift>		for 3
+! 29. <A + Shift>		for 4
+! 30. <S + Shift>		for 5
+! 30. <D + Shift>		for 6
+! 31. <Z + Shift>		for 7
+! 32. <X + Shift>		for 8
+! 33. <C + Shift>		for 9
+! 34. <O + Shift>		for 0
 ! --------------<DESCRIPTION/>------------------
 !
 ! You should clear special key you want to change bofore assigning 
@@ -56,25 +66,25 @@ keycode 45 = k 				K 			Down
 keycode 31 = i 				I 			Up
 keycode 46 = l 				L 			Right
 keycode 30 = u 				U 			BackSpace
-keycode 32 = o 				O 			Delete
+keycode 32 = o 				O 			Delete			0
 keycode 43 = h 				H 			Home
 keycode 29 = y 				Y 			Escape
 keycode 47 = semicolon 		colon 		End
 keycode 57 = n 				N 			Prior
 keycode 58 = m 				M 			Next
-keycode 24 = q 				Q 			backslash
-keycode 25 = w 				W 			minus
-keycode 26 = e 				E 			equal
+keycode 24 = q 				Q 			backslash		1
+keycode 25 = w 				W 			minus			2
+keycode 26 = e 				E 			equal			3
 keycode 27 = r 				R 			asciitilde
-keycode 38 = a 				A 			ampersand
-keycode 39 = s 				S 			asterisk
-keycode 40 = d 				D 			dollar
+keycode 38 = a 				A 			ampersand		4
+keycode 39 = s 				S 			asterisk		5
+keycode 40 = d 				D 			dollar			6
 keycode 41 = f 				F 			percent
 keycode 48 = apostrophe		quotedbl	grave
 keycode 56 = b 				B 			F6
-keycode 52 = z				Z			exclam
-keycode 53 = x				X			at
-keycode 54 = c				C			numbersign
+keycode 52 = z				Z			exclam			7
+keycode 53 = x				X			at				8
+keycode 54 = c				C			numbersign		9
 keycode 55 = v				V			asciicircum
 keycode 59 = comma			less		underscore
 keycode 60 = period			greater		greater
