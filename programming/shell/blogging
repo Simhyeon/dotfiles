@@ -1,0 +1,73 @@
+#!/bin/bash
+
+set -e
+set -u
+set -o pipefail
+
+# Read necessary variables
+source $HOME/.config/.blog_env
+
+# Init variables
+Post=false
+Put=false
+FileType=""
+File=""
+Title=""
+
+# C for Create 
+# U for Update
+# T for Title
+# M for mimetype but it's simply img and doc at most
+while getopts 'cut:m:p:h' OPTION; do
+	case "$OPTION" in
+		c)
+			Post=true
+			;;
+		u)
+			Put=true
+			;;
+		t)
+			Title="$OPTARG"
+			;;
+		m)
+			FileType="$OPTARG"
+			;;
+		p)
+			File="$OPTARG"
+			;;
+		h)
+			echo "Blog rest api automation script 
+Simple usage : 
+Create : blogging -c -t <title> -p <path> -m <type> 
+Update : blogging -u -p <path>"
+			exit 0
+			;;
+		?)
+			"Valid flags are [-c] [-u] [-t Title] [-p FilePath] [-m FileType]"
+	esac
+done
+
+shift "$(($OPTIND - 1))"
+
+[ -z $FileType ] && [ $Post = true ] && echo "Err : No file type was given" && exit 0
+[ -z $File ] && echo "Err : No file path was given" && exit 0
+
+# Use basename if no title was given
+[ -z "$Title" ] && Title="$(basename $File)"
+
+# All curl syntaxes were exported from postman
+
+# Format form data
+Format="files=@\"$(readlink -f $File)\""
+# This is post
+[ "$Post" = true ] && curl -i --location --request POST "${URL}/posts?password={$PASSWORD}" \
+	--header "File-Type: $FileType" \
+	--header "Title: $Title" \
+	--form "$Format" --silent -o /dev/null  -w "%{http_code}" && exit 0
+
+# This is put
+[ "$Put" = true ] && curl -i --location --request PUT "${URL}/posts?password={$PASSWORD}" \
+	--form "$Format"  && exit 0
+
+# Error
+echo "Err : No method was given" && exit 0
