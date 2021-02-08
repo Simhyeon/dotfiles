@@ -10,4 +10,4 @@ export PATH=/home/simon/.npm-packages/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 
-export PATH="$HOME/.cargo/bin:$PATH"
+source "$HOME/.cargo/env"
