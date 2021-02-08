@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# TODO 
+# Get Profile list from profile directories
+# And play
+
+PROFILE=$HOME/.config/ffprofile
+User=$(cat $PROFILE | dmenu -i -p "Profile")
+[ -z "$User" ] && exit 0
+BRSFILE=$HOME/.config/brsconfig
+awk -F"|" '{print $1}' $BRSFILE | dmenu -i -p "Website" | xargs -r brs -p $User -u

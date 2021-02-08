@@ -14,7 +14,7 @@ link=false
 search=false
 opentype=-new-tab
 direct=false
-while getopts 'alo:u:s:p' OPTION; do
+while getopts 'alo:u:s:p:' OPTION; do
 	case "$OPTION" in
 		a)
 			direct=true
@@ -36,6 +36,9 @@ while getopts 'alo:u:s:p' OPTION; do
 		s)
 			search=true
 			keyword=$OPTARG
+			;;
+		p)
+			opentype="-new-instance -p $OPTARG"
 			;;
 		?)
 			"Valid flags are [-l] [-u] [-s search_keyword]"
