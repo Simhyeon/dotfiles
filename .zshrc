@@ -4,6 +4,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
+setopt HIST_IGNORE_SPACE
 
 # This enables search history with several characters to serach a whole line
 autoload -U up-line-or-beginning-search
@@ -74,7 +75,7 @@ fi
 export SDKMAN_DIR="/home/simon/.sdkman"
 [[ -s "/home/simon/.sdkman/bin/sdkman-init.sh" ]] && source "/home/simon/.sdkman/bin/sdkman-init.sh"
 
-source /home/simon/misc/vulkan/1.2.148.1/setup-env.sh
+# source /home/simon/misc/vulkan/1.2.148.1/setup-env.sh
 
 # Start starship
 eval "$(starship init zsh)"
