@@ -38,7 +38,7 @@ while getopts 'alo:u:s:p:' OPTION; do
 			keyword=$OPTARG
 			;;
 		p)
-			opentype="-new-instance -p $OPTARG"
+			opentype="-no-remote -new-instance -p $OPTARG"
 			;;
 		?)
 			"Valid flags are [-l] [-u] [-s search_keyword]"
