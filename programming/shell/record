@@ -1,0 +1,19 @@
+#!/bin/bash
+
+FORMAT=mkv
+OUTPUT=$(date)
+
+# If output file name was given then...
+if ! [[ -z "$1" ]]; then
+	OUTPUT=$1
+fi
+
+# If output format was given then...
+if ! [[ -z "$2" ]]; then
+	FORMAT=$2
+fi
+
+# Substitue all spaces with underscore
+OUTPUT=${OUTPUT// /_}.$FORMAT 
+
+ffmpeg -f x11grab -video_size 1920x1080 -probesize 40M -framerate 30 -i $DISPLAY -c:v libx265 $OUTPUT
