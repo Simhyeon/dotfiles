@@ -1,4 +1,5 @@
 {
+	"rust-analyzer.cargo.allFeatures": true,
 	"diagnostic.checkCurrentLine": true,
 	"languageserver": {
 		"xml": {
@@ -15,5 +16,12 @@
 		"--compile-commands-dir=./build",
 		"--background-index",
 		"--completion-style=detailed"
+	],
+	"deno.enable": false,
+	"deno.lint": false,
+	"deno.unstable": false,
+	"prettier.disableLanguages": [
+		"typescript",
+		"javascript"
 	]
 }

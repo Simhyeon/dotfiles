@@ -23,9 +23,9 @@ Plug 'preservim/nerdcommenter'
 Plug 'liuchengxu/vista.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 call plug#end()
 
@@ -46,8 +46,7 @@ syntax enable
 set mouse=a
 set termguicolors
 colorscheme gruvbox
-set background=dark
-"let g:seoul256_background = 256
+set background=light
 
 " highlight MatchParen cterm=none ctermbg=green ctermfg=blue
 highlight Comment ctermfg=grey cterm=italic
@@ -60,7 +59,7 @@ nmap <silent> <F8> :Vista!!<CR>
 " let g:loaded_matchparen=1
 
 " airline theme
-let g:airline_theme='gruvbox'
+let g:airline_theme='base16_gruvbox_light_soft'
 set hidden
 
 "gruvbox speicfic configs
@@ -82,7 +81,13 @@ hi Normal guibg=NONE ctermbg=NONE
 
 
 " ---------------------------------------------------------------------------------------------
-  
+" Gddt and r4d settings
+" Ultisnips file detect
+au BufNewFile,BufRead *.r4d set filetype=r4d
+au BufNewFile,BufRead *.gddt set filetype=gddt
+
+autocmd FileType gddt setlocal indentexpr=
+autocmd FileType r4d setlocal indentexpr=
 " ---------------------------------------------------------------------------------------------
 
 " ---------------------------------------------------------------------------------------------
@@ -106,6 +111,7 @@ map <silent> <C-n> :NERDTreeToggle<CR>
 "  FzfPreview Settings
 map <silent> <C-f> :CocCommand fzf-preview.ProjectFiles<CR>
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let g:fzf_preview_command = 'bat --color=always --plain {-1}'
 
 " ---------------------------------------------------------------------------------------------
 " Coc Setting
@@ -385,4 +391,5 @@ map <Leader>tk <C-w>t<C-w>K
 
 set fillchars+=vert:\ 
 
-
+" Bat preview color
+let $FZF_PREVIEW_PREVIEW_BAT_THEME = 'gruvbox-light'
