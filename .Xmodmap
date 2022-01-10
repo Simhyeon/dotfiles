@@ -13,7 +13,7 @@
 ! Below is a short description for my keymappings
 ! <keyname>         for <explanation>
 ! <Alt_L>           for Mode_switch key
-! <Alt_R>           for Alt left
+! <Ctrl_R>          for Alt left
 ! <P>               for Plus
 ! <H>               for home
 ! <Colon>(;)        for end
@@ -44,7 +44,7 @@
 ! You should clear special key you want to change bofore assigning 
 !
 ! Clear special keys and reassign
-clear mod1
+clear mod1 
 keycode 64 = Mode_switch 
 
 ! Set custom key mapping
@@ -60,7 +60,7 @@ keycode 28 = t              T           grave
 keycode 29 = y              Y           Escape
 keycode 30 = u              U           BackSpace
 keycode 31 = i              I           Up
-keycode 32 = o              O           Delete
+keycode 32 = o              O           Delete          0
 keycode 33 = p              P           plus            7
 keycode 34 = bracketleft    braceleft   bracketleft     8
 keycode 35 = bracketright   braceright  bracketright    9
@@ -84,7 +84,6 @@ keycode 58 = m              M           Next
 keycode 59 = comma          less        underscore      1
 keycode 60 = period         greater     greater         2
 keycode 61 = slash          question    slash           3
-keycode 108 = Alt_L
 ! --------------------------------------------------------------------
 
 ! and after assinging you sould assign functionatly again
