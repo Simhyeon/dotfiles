@@ -4,10 +4,8 @@ Plug 'ap/vim-css-color'
 Plug 'tpope/vim-fugitive'
 Plug 'morhetz/gruvbox'
 Plug 'rust-lang/rust.vim'
-Plug 'ron-rs/ron.vim'
 Plug 'lervag/vimtex'
 Plug 'timonv/vim-cargo'
-Plug 'udalov/kotlin-vim'
 Plug 'shime/vim-livedown'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -24,8 +22,8 @@ Plug 'liuchengxu/vista.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'jceb/vim-orgmode'
 Plug 'dense-analysis/ale'
 call plug#end()
 
