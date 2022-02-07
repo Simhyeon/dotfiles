@@ -1,0 +1,38 @@
+#!/bin/sh
+
+editor=nvim
+rootdir="$HOME/Todo"
+dir="$rootdir"
+ref_file="ref.org"
+
+file="$(date --iso-8601).org"
+
+# Create new file
+# If current file is not existent
+
+# Set directory from argument
+if [ -n "$1" ]; then
+	if [ -d "$dir/$1" ]; then
+		dir="$dir/$1"
+	else
+		$editor "$dir/$1.org"
+		exit 0 
+	fi
+else
+	dir="$rootdir/routine"
+fi
+
+# Set final path
+path="$dir/$file"
+
+# Create new if it doesn't exist
+# Paste reference file
+if ! [ -f "$path" ]; then
+	touch "$path"
+	cat "$dir/$ref_file" > "$path"
+fi
+
+# Execute path
+$editor "$path"
+
+exit 0 
