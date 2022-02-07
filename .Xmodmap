@@ -61,6 +61,7 @@ keycode 29 = y              Y           Escape
 keycode 30 = u              U           BackSpace
 keycode 31 = i              I           Up
 keycode 32 = o              O           Delete          0
+keycode 51 = backslash		bar			backslash		0
 keycode 33 = p              P           plus            7
 keycode 34 = bracketleft    braceleft   bracketleft     8
 keycode 35 = bracketright   braceright  bracketright    9
