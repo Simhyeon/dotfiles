@@ -1,57 +1,82 @@
-! --------------<DESCRIPTION>-------------------
-! Keep in mind that my xmodmap is some clunky result of searching my keymapping
-! so definitely not a neat solution.  I'm changing left alt key to mode switch
-! and caps lock to alt key becuase who uses caps lock anyway just press the
-! good ol' shift Every keyname is represented as capital but not the capital in
-! real use.  If you want to change xmodmap by your flavor refer to the table in
-! the bottom of this file.  Also Arch wiki is a great resource.
+! # NOTE
+!
+! Keep in mind that my .Xmodmap is some clunky result of searching my keymapping
+! so definitely not a neat solution.  
+! I set left alt key to mode switch and caps lock to alt key becuase who
+! uses caps lock anyway just press the good ol' shift.
+! If you want to change .Xmodmap by your flavor refer to the table in the bottom of
+! this file. Also Arch wiki is a great resource.
 ! https://wiki.archlinux.org/index.php/Xmodmap
 !
+! # How to get keycode
+!
 ! Keycode can be detected with xev command. Simply open up your terminal and
-! type xev to find out.
+! type "xev" to find out. Search for Key even block which contains keycode
+!
+! e.g. ) "xev" will print following blocks when key pressed. Pressed '>'(shift + .)
+! e.g. ) in this case.
+! KeyPress event, serial 32, synthetic NO, window 0x2600001,
+!    ...
+!    state 0x1, keycode 60 (keysym 0x3e, greater), same_screen YES,
+!    ...
+!
+! # Abstract
 !
 ! Below is a short description for my keymappings
 ! <keyname>         for <explanation>
+! ----------- Generics --------------
 ! <Alt_L>           for Mode_switch key
 ! <Ctrl_R>          for Alt left
-! <P>               for Plus
-! <H>               for home
-! <Colon>(;)        for end
+! <p>               for Plus
+! <h>               for home
+! <;>               for end
 ! <i, j, k, l>      for (up, left, down, right) respectively
-! <Y>               for Esc or escape key
-! <U>               for Backspace key
-! <O>               for Delete key
-! <N>               for Pageup or prior key
-! <M>               for Page down or Next key
-! <Q>               for Backslash
-! <W>               for Minus
-! <E>               for Equal
-! <R>               for tilde
-! <T>               for grave(`)
-! <A>               for Ampersand
-! <S>               for Asterisk
-! <D>               for Dollar
-! <F>               for Percentage
-! <Z>               for exclamation mark
-! <X>               for at
-! <C>               for numbersign
-! <V>               for Carret(^)
-! <B>               for F6
-! <<>               for underscore
-! <.>               for Dash(>)
-! --------------<DESCRIPTION/>------------------
+! <y>               for Esc or escape key
+! <u>               for Backspace key
+! <o>               for Delete key
+! <n>               for Pageup or prior key
+! <m>               for Page down or Next key
+! <q>               for Backslash
+! <w>               for Minus
+! <e>               for Equal
+! <r>               for tilde
+! <t>               for grave(`)
+! <a>               for Ampersand
+! <s>               for Asterisk
+! <d>               for Dollar
+! <f>               for Percentage
+! <z>               for exclamation mark
+! <x>               for at(@)
+! <c>               for numbersign(#)
+! <v>               for Carret(^)
+! <b>               for F6
+! <,>               for underscore(_)
+! <.>               for Greater than(>)
 !
-! You should clear special key you want to change bofore assigning 
+! ##  Left keyboard numpad
+! Q W E             for 1 2 3 
+! A S D             for 4 5 6
+! Z X C             for 7 8 9
 !
-! Clear special keys and reassign
+! ## Right keyboard numpad
+! P { }             for 7 8 9
+! L : "             for 4 5 6
+! < > ?             for 1 2 3
+
+! # Clear keys
+! You should clear special key that you want to change bofore assign other keys 
+!
+! Clear special keys(left_alt) and reassign it as mod switch key
 clear mod1 
 keycode 64 = Mode_switch 
 
+! # Mapping
 ! Set custom key mapping
+! Key mapping are separated by whitespaces and a syntax is quite lenient
 ! Key code mapping table's format is in the next line.
-! --------------------------------------------------------------------
-! keycode   |normal         |shift      |mode key       |mode+ shift
-! --------------------------------------------------------------------
+! ---------------------------------------------------------------------
+! keycode   |normal         |shift      |mode+key       |mode+shift+key
+! ---------------------------------------------------------------------
 keycode 24 = q              Q           backslash       1
 keycode 25 = w              W           minus           2
 keycode 26 = e              E           equal           3
@@ -61,7 +86,7 @@ keycode 29 = y              Y           Escape
 keycode 30 = u              U           BackSpace
 keycode 31 = i              I           Up
 keycode 32 = o              O           Delete          0
-keycode 51 = backslash		bar			backslash		0
+keycode 51 = backslash      bar         backslash       0
 keycode 33 = p              P           plus            7
 keycode 34 = bracketleft    braceleft   bracketleft     8
 keycode 35 = bracketright   braceright  bracketright    9
@@ -69,6 +94,7 @@ keycode 38 = a              A           ampersand       4
 keycode 39 = s              S           asterisk        5
 keycode 40 = d              D           dollar          6
 keycode 41 = f              F           percent
+keycode 42 = g              G           colon
 keycode 43 = h              H           Home
 keycode 44 = j              J           Left
 keycode 45 = k              K           Down
@@ -85,17 +111,19 @@ keycode 58 = m              M           Next
 keycode 59 = comma          less        underscore      1
 keycode 60 = period         greater     greater         2
 keycode 61 = slash          question    slash           3
-! --------------------------------------------------------------------
+! ---------------------------------------------------------------------
 
+! # Reassign special keys
 ! and after assinging you sould assign functionatly again
 ! Still doesn't get about the mechanism in here, but it works anyway... so yeah
 add mod1 = Alt_L Alt_R
 
 
+! # Reference
 ! Table of keycode(number) and keysms(name)
-! --------------------------------------------------------------------
-! keycode   |normal         |shift      |mode key       |mode+ shift
-! --------------------------------------------------------------------
+! ---------------------------------------------------------------------
+! keycode   |normal         |shift      |mode+key       |mode+shift+key
+! ---------------------------------------------------------------------
 ! keycode 10 = 1            exclam
 ! keycode 11 = 2            at
 ! keycode 12 = 3            numbersign
