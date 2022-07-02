@@ -1,0 +1,22 @@
+#!/bin/sh
+# Todo aggregator
+
+acc_file="$HOME/Todo/tdup.md"
+todo_macro='$define(h,a_title=# $a_title()$nl())
+$define(todo_start=$define(cont=)$relay(macro,cont))
+$define(todo_end=$nl()$que($halt()$tempout($chomp($cont()))))'
+base_dir="$HOME/programming"
+file="docs/meta.md"
+projects="rust/dcsv rust/ced rust/cindex rust/r4d rust/gdengine rust/gcalc rust/cursorvec"
+todo_files=""
+
+# Transform procject names into a file path
+for p in $projects; do
+	todo_files="${todo_files} $base_dir/$p/$file"
+done
+
+# Execute rad macro
+printf '%s' "$todo_macro" | rad $todo_files -a fout --silent security --discard --combination --lenient --comment
+
+# Copy temp file to accumulator file
+cp /tmp/rad.txt -f $acc_file
