@@ -27,17 +27,14 @@ Plug 'dense-analysis/ale'
 call plug#end()
 
 set autoindent
-imap jk <Esc>
-vmap jk <Esc>
 set tabstop=4
-set cindent
-set smartindent
 set shiftwidth=4
+set expandtab
 set number
 set more
 set ruler
 set encoding=UTF-8
-" set noshowmatch
+
 set autoread
 syntax enable
 set mouse=a
@@ -64,6 +61,7 @@ set hidden
 " Show parts only when it is not utf-8 encoding
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 let g:airline#extensions#hunks#enabled=0
+let g:airline#extensions#wordcount#enabled = 0
 let g:airline_section_z = '%2l/%L:%2v'
 let g:airline_mode_map = {
       \ '__'     : '-',
@@ -407,8 +405,6 @@ nnoremap <silent> <C-Down> :resize -3<CR>
 
 map <Leader>th <C-w>t<C-w>H
 map <Leader>tk <C-w>t<C-w>K
-
-set fillchars+=vert:\
 
 " Bat preview color
 let $FZF_PREVIEW_PREVIEW_BAT_THEME = 'gruvbox-light'
