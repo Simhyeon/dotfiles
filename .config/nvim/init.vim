@@ -1,12 +1,11 @@
 call plug#begin('~/.vim/plugged')
 
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-fugitive'
 Plug 'morhetz/gruvbox'
 Plug 'rust-lang/rust.vim'
 Plug 'lervag/vimtex'
-Plug 'timonv/vim-cargo'
-Plug 'shime/vim-livedown'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
@@ -52,6 +51,7 @@ autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 nmap <silent> <F6> :NERDTreeToggle<CR>
 nmap <silent> <F8> :Vista!!<CR>
+nmap <silent> <C-e> :%s/\s\+$//gc<CR>
 
 " showmatch disable
 " let g:loaded_matchparen=1
@@ -59,6 +59,32 @@ nmap <silent> <F8> :Vista!!<CR>
 " airline theme
 let g:airline_theme='base16_gruvbox_light_soft'
 set hidden
+
+" airline configuration
+" Show parts only when it is not utf-8 encoding
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+let g:airline#extensions#hunks#enabled=0
+let g:airline_section_z = '%2l/%L:%2v'
+let g:airline_mode_map = {
+      \ '__'     : '-',
+      \ 'c'      : 'C',
+      \ 'i'      : 'I',
+      \ 'ic'     : 'I',
+      \ 'ix'     : 'I',
+      \ 'n'      : 'N',
+      \ 'multi'  : 'M',
+      \ 'ni'     : 'N',
+      \ 'no'     : 'N',
+      \ 'R'      : 'R',
+      \ 'Rv'     : 'R',
+      \ 's'      : 'S',
+      \ 'S'      : 'S',
+      \ ''     : 'S',
+      \ 't'      : 'T',
+      \ 'v'      : 'V',
+      \ 'V'      : 'V',
+      \ ''     : 'V',
+      \ }
 
 "gruvbox speicfic configs
 " let g:gruvbox_italic = 1
@@ -96,11 +122,6 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 " ---------------------------------------------------------------------------------------------
 
-" ---------------------------------------------------------------------------------------------
-"  Markdown plugin
-nmap <silent> <C-l> :LivedownToggle<CR>
-let g:livedown_browser = "firefox"
-" ---------------------------------------------------------------------------------------------
 " custom keymap
 " toggle nerd tree
 map <silent> <C-n> :NERDTreeToggle<CR>
@@ -117,9 +138,9 @@ let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
   \ 'coc-tsserver',
-  \ 'coc-eslint', 
-  \ 'coc-prettier', 
-  \ 'coc-json', 
+  \ 'coc-eslint',
+  \ 'coc-prettier',
+  \ 'coc-json',
   \ ]
 
 " Some servers have issues with backup files, see #649
@@ -279,14 +300,14 @@ nnoremap <silent> <C-q> :q<CR>
 " " general
 " let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
 " let $FZF_DEFAULT_OPTS="--reverse " " top to bottom
-" 
+"
 " " use rg by default
 " if executable('rg')
 "   let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
 "   set grepprg=rg\ --vimgrep
 "   command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 " endif
-" 
+"
 " " floating fzf window with borders
 " function! CreateCenteredFloatingWindow()
 "     let width = min([&columns - 4, max([80, &columns - 20])])
@@ -294,7 +315,7 @@ nnoremap <silent> <C-q> :q<CR>
 "     let top = ((&lines - height) / 2) - 1
 "     let left = (&columns - width) / 2
 "     let opts = {'relative': 'editor', 'row': top, 'col': left, 'width': width, 'height': height, 'style': 'minimal'}
-" 
+"
 "     let top = "╭" . repeat("─", width - 2) . "╮"
 "     let mid = "│" . repeat(" ", width - 2) . "│"
 "     let bot = "╰" . repeat("─", width - 2) . "╯"
@@ -310,7 +331,7 @@ nnoremap <silent> <C-q> :q<CR>
 "     call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
 "     au BufWipeout <buffer> exe 'bw '.s:buf
 " endfunction
-" 
+"
 " " Files + devicons + floating fzf
 " function! Fzf_dev()
 "   let l:fzf_files_options = '--preview "bat --theme="base16" --style=numbers,changes --color always {2..-1} | head -'.&lines.'"'
@@ -318,34 +339,34 @@ nnoremap <silent> <C-q> :q<CR>
 "     let l:files = split(system($FZF_DEFAULT_COMMAND), '\n')
 "     return s:prepend_icon(l:files)
 "   endfunction
-" 
+"
 "   function! s:prepend_icon(candidates)
 "     let l:result = []
 "     for l:candidate in a:candidates
 "       let l:filename = fnamemodify(l:candidate, ':p:t')
 "       " Currently glyph support is very poor in alacritty which is daily
-" 	  " termianl 
+" 	  " termianl
 " 	  let l:icon = "`"
 " 	  "WebDevIconsGetFileTypeSymbol(l:filename, isdirectory(l:filename))
 "       call add(l:result, printf('%s %s', l:icon, l:candidate))
 "     endfor
-" 
+"
 "     return l:result
 "   endfunction
-" 
+"
 "   function! s:edit_file(item)
 "     let l:pos = stridx(a:item, ' ')
 "     let l:file_path = a:item[pos+1:-1]
 "     execute 'silent e' l:file_path
 "   endfunction
-" 
+"
 "   call fzf#run({
 "         \ 'source': <sid>files(),
 "         \ 'sink':   function('s:edit_file'),
 "         \ 'options': '-m --reverse ' . l:fzf_files_options,
 "         \ 'down':    '40%',
 "         \ 'window': 'call CreateCenteredFloatingWindow()'})
-" 
+"
 " endfunction
 
 " fzf recommended command
@@ -374,10 +395,10 @@ let g:tex_flavor='latex'
 " split option
 set splitbelow splitright
 
-nnoremap <C-h> <C-W>h 
-nnoremap <C-j> <C-j>j 
-nnoremap <C-k> <C-k>k 
-nnoremap <C-l> <C-l>l 
+nnoremap <C-h> <C-W>h
+nnoremap <C-j> <C-j>j
+nnoremap <C-k> <C-k>k
+nnoremap <C-l> <C-l>l
 
 nnoremap <silent> <C-Left> :vertical resize +3<CR>
 nnoremap <silent> <C-Right> :vertical resize -3<CR>
@@ -387,7 +408,14 @@ nnoremap <silent> <C-Down> :resize -3<CR>
 map <Leader>th <C-w>t<C-w>H
 map <Leader>tk <C-w>t<C-w>K
 
-set fillchars+=vert:\ 
+set fillchars+=vert:\
 
 " Bat preview color
 let $FZF_PREVIEW_PREVIEW_BAT_THEME = 'gruvbox-light'
+
+" Org mode tab size
+autocmd FileType org setlocal shiftwidth=2 softtabstop=2 expandtab
+
+" Make paste doesn't swap register
+xnoremap p pgvy
+xnoremap P Pgvy
