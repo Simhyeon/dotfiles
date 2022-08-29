@@ -302,7 +302,7 @@ handle_mime() {
                 local pygmentize_format='terminal'
                 local highlight_format='ansi'
             fi
-            env COLORTERM=8bit bat --theme OneHalfLight --color=always  --style="plain"\
+            env COLORTERM=8bit bat --theme zenburn --color=always  --style="plain"\
                 -- "${FILE_PATH}" && exit 5
             env HIGHLIGHT_OPTIONS="${HIGHLIGHT_OPTIONS}" highlight \
                 --out-format="${highlight_format}" \
