@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-fugitive'
 Plug 'morhetz/gruvbox'
@@ -34,13 +33,13 @@ set number
 set more
 set ruler
 set encoding=UTF-8
+set colorcolumn=80
 
 set autoread
 syntax enable
 set mouse=a
 set termguicolors
-colorscheme gruvbox
-set background=light
+colorscheme zenburn
 
 " highlight MatchParen cterm=none ctermbg=green ctermfg=blue
 highlight Comment ctermfg=grey cterm=italic
@@ -49,12 +48,16 @@ autocmd StdinReadPre * let s:std_in=1
 nmap <silent> <F6> :NERDTreeToggle<CR>
 nmap <silent> <F8> :Vista!!<CR>
 nmap <silent> <C-e> :%s/\s\+$//gc<CR>
+nnoremap <leader>m m0
+nnoremap <leader>o '0
+nnoremap <silent> <C-s> :w<CR>
+nnoremap <silent> <C-q> :q<CR>
 
 " showmatch disable
 " let g:loaded_matchparen=1
 
 " airline theme
-let g:airline_theme='base16_gruvbox_light_soft'
+let g:airline_theme='zenburn'
 set hidden
 
 " airline configuration
@@ -119,10 +122,6 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 " ---------------------------------------------------------------------------------------------
-
-" custom keymap
-" toggle nerd tree
-map <silent> <C-n> :NERDTreeToggle<CR>
 
 " ---------------------------------------------------------------------------------------------
 "  FzfPreview Settings
@@ -290,9 +289,6 @@ let g:vista#renderer#enable_icon = 0
 
 "-------------------------------------------------------------
 " fzf config
-
-nnoremap <silent> <C-s> :w<CR>
-nnoremap <silent> <C-q> :q<CR>
 " nnoremap <silent> <Leader>e :call Fzf_dev()<CR>
 
 " " general
