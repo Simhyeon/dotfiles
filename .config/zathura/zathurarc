@@ -1,0 +1,17 @@
+# Stop at page boundries
+# This makes scrolling "slower" but consistent with human cognition
+set scroll-page-aware "true"
+
+# Open document in fit-width mode by default
+set adjust-open "best-fit"
+
+# This invert a color
+# This is technically not a dark mode, but it works as if it were a dark mode
+# You need to set several configs to really emulate dark mode. Yet I don't mind
+# them.
+set recolor true
+
+# This excludes invert for medias, for example image
+# Most of the time, inverted images are not goes well with pure inverted "dark"
+# mode.
+set recolor-reverse-video "true"
