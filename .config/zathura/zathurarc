@@ -15,3 +15,8 @@ set recolor true
 # Most of the time, inverted images are not goes well with pure inverted "dark"
 # mode.
 set recolor-reverse-video "true"
+# zenburn theme color
+set recolor-lightcolor "#3f3f3f"
+
+# No file name for goyo experience
+set guioptions none
