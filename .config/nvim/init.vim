@@ -1,10 +1,10 @@
 call plug#begin('~/.vim/plugged')
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'ap/vim-css-color'
 Plug 'tpope/vim-fugitive'
-Plug 'morhetz/gruvbox'
 Plug 'rust-lang/rust.vim'
-Plug 'lervag/vimtex'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
@@ -22,15 +22,15 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jceb/vim-orgmode'
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 call plug#end()
 
 set autoindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
-set number
 set more
+set number
 set ruler
 set encoding=UTF-8
 set colorcolumn=80
@@ -39,13 +39,15 @@ set autoread
 syntax enable
 set mouse=a
 set termguicolors
-colorscheme zenburn
+colors zenburn
+set t_Co=256
+" colorscheme zenburn
 
 " highlight MatchParen cterm=none ctermbg=green ctermfg=blue
 highlight Comment ctermfg=grey cterm=italic
 autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-nmap <silent> <F6> :NERDTreeToggle<CR>
+nmap <silent> <F6> :TSContextToggle<CR>
 nmap <silent> <F8> :Vista!!<CR>
 nmap <silent> <C-e> :%s/\s\+$//gc<CR>
 nnoremap <leader>m m0
@@ -228,10 +230,6 @@ xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
-
-" Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <C-d> <Plug>(coc-range-select)
-xmap <silent> <C-d> <Plug>(coc-range-select)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
