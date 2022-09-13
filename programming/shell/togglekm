@@ -6,8 +6,11 @@ grepped=$(xmodmap -pke | grep 'eycode  64 = Mode_switch')
 # Easy mod
 if [ ! -z "$grepped" ]; then
     # Reset key mapping
-    setxkbmap -option
+    setxkbmap -option && killall dstatus
 else
     # Enable ezkeymap
-    xmodmap ~/.Xmodmap
+    xmodmap ~/.Xmodmap && killall dstatus
 fi
+
+dstatus & disown
+exit 0
