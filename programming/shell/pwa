@@ -1,0 +1,50 @@
+#!/bin/sh
+
+# Check firefoxpwa binary installation
+if ! command -v firefoxpwa &> /dev/null
+then
+    echo "Firefox pwa runtime is not installed"
+fi
+
+# Check rad macro processor installation
+# This is used to extract information from pwa command so that dmenu can utilize it.
+if ! command -v rad &> /dev/null
+then
+    echo "Rad macro processor is not installed"
+fi
+
+# Get dmenu list src
+src=$(firefoxpwa profile list)
+
+# Process a list command output so that it can be used by dmenu
+# Processed input looks like the following,
+map=$(rad --pipe --literal '$after|(Apps:,$-())
+$declare(name_arr,id_arr)
+$forline^(
+    $let(arr,$ssplit($:^()))
+    $index|(1,$arr())
+    $append(name_arr,$tr^(:, ,$-()),$space())
+    $index|(3,$arr())
+    $append(id_arr,$tr^((),  ,$-()),$space()) ,
+    $-()
+)$enl()
+$name_arr()
+$id_arr()' <<< $src)
+
+# Set variables for simplicity
+names=$(head -1 <<< "$map")
+ids=$(tail -1 <<< "$map")
+
+# Show dmenu and get user input
+selected=$(dmenu -i <<< $names)
+
+# Finally open a firefox pwa
+counter=0
+for i in "$names"
+do 
+    if [ $i = $selected ]; then
+        firefoxpwa site launch $(cut -d ' ' -f 1 <<< $ids)
+    else
+        counter=$counter+1
+    fi
+done
