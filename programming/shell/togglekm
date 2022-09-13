@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# If grepped success, it is not keymapped to ezmod
+grepped=$(xmodmap -pke | grep 'eycode  64 = Mode_switch')
+
+# Easy mod
+if [ ! -z "$grepped" ]; then
+    # Reset key mapping
+    setxkbmap -option
+else
+    # Enable ezkeymap
+    xmodmap ~/.Xmodmap
+fi
