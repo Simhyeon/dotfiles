@@ -1,11 +1,16 @@
 ! # NOTE
 !
-! Keep in mind that my .Xmodmap is some clunky result of searching my keymapping
-! so definitely not a neat solution.  
-! I set left alt key to mode switch and caps lock to alt key becuase who
-! uses caps lock anyway just press the good ol' shift.
-! If you want to change .Xmodmap by your flavor refer to the table in the bottom of
-! this file. Also Arch wiki is a great resource.
+! For asian users, this keymappings will not work when typing in your native
+! language. You need a separate article to understand why that doesn't work,
+! yet you can use keyd or kmonad if you need low-level global key mapping.
+! I personally recommend using keyd if you are not familar with lisp-like
+! languages. 
+!
+! - Keyd repository : https://github.com/rvaiya/keyd
+! - My config for keyd : https://gist.github.com/Simhyeon/58b008a9a5d8e8b34d78d774db1f745b
+!
+! If you want to change .Xmodmap by your flavor refer to the table in the
+! bottom of this file. Also Arch wiki is a great resource.
 ! https://wiki.archlinux.org/index.php/Xmodmap
 !
 ! # How to get keycode
@@ -13,12 +18,14 @@
 ! Keycode can be detected with xev command. Simply open up your terminal and
 ! type "xev" to find out. Search for Key even block which contains keycode
 !
-! e.g. ) "xev" will print following blocks when key pressed. Pressed '>'(shift + .)
-! e.g. ) in this case.
-! KeyPress event, serial 32, synthetic NO, window 0x2600001,
-!    ...
-!    state 0x1, keycode 60 (keysym 0x3e, greater), same_screen YES,
-!    ...
+! Especially use a command 'xev | grep --line-buffered keysym' if you want some
+! intuitive keypress sequences.
+!
+! # How to use xmodmap
+!
+! Simply run "xmodmap .Xmodmap" in your shell. If yout want the script to be
+! ran automatcially on boot, use system service or startup script preferrably
+! time intervals.
 !
 ! # Abstract
 !
@@ -26,7 +33,6 @@
 ! <keyname>         for <explanation>
 ! ----------- Generics --------------
 ! <Alt_L>           for Mode_switch key
-! <Ctrl_R>          for Alt left
 ! <p>               for Plus
 ! <h>               for home
 ! <;>               for end
@@ -117,7 +123,6 @@ keycode 61 = slash          question    slash           3
 ! and after assinging you sould assign functionatly again
 ! Still doesn't get about the mechanism in here, but it works anyway... so yeah
 add mod1 = Alt_L Alt_R
-
 
 ! # Reference
 ! Table of keycode(number) and keysms(name)
