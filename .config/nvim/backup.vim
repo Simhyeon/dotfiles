@@ -283,81 +283,6 @@ let g:vista_fzf_preview = ['right:50%']
 let g:vista#renderer#enable_icon = 0
 
 "-------------------------------------------------------------
-" fzf config
-" nnoremap <silent> <Leader>e :call Fzf_dev()<CR>
-
-" " general
-" let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
-" let $FZF_DEFAULT_OPTS="--reverse " " top to bottom
-"
-" " use rg by default
-" if executable('rg')
-"   let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
-"   set grepprg=rg\ --vimgrep
-"   command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
-" endif
-"
-" " floating fzf window with borders
-" function! CreateCenteredFloatingWindow()
-"     let width = min([&columns - 4, max([80, &columns - 20])])
-"     let height = min([&lines - 4, max([20, &lines - 10])])
-"     let top = ((&lines - height) / 2) - 1
-"     let left = (&columns - width) / 2
-"     let opts = {'relative': 'editor', 'row': top, 'col': left, 'width': width, 'height': height, 'style': 'minimal'}
-"
-"     let top = "╭" . repeat("─", width - 2) . "╮"
-"     let mid = "│" . repeat(" ", width - 2) . "│"
-"     let bot = "╰" . repeat("─", width - 2) . "╯"
-"     let lines = [top] + repeat([mid], height - 2) + [bot]
-"     let s:buf = nvim_create_buf(v:false, v:true)
-"     call nvim_buf_set_lines(s:buf, 0, -1, v:true, lines)
-"     call nvim_open_win(s:buf, v:true, opts)
-"     set winhl=Normal:Floating
-"     let opts.row += 1
-"     let opts.height -= 2
-"     let opts.col += 2
-"     let opts.width -= 4
-"     call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
-"     au BufWipeout <buffer> exe 'bw '.s:buf
-" endfunction
-"
-" " Files + devicons + floating fzf
-" function! Fzf_dev()
-"   let l:fzf_files_options = '--preview "bat --theme="base16" --style=numbers,changes --color always {2..-1} | head -'.&lines.'"'
-"   function! s:files()
-"     let l:files = split(system($FZF_DEFAULT_COMMAND), '\n')
-"     return s:prepend_icon(l:files)
-"   endfunction
-"
-"   function! s:prepend_icon(candidates)
-"     let l:result = []
-"     for l:candidate in a:candidates
-"       let l:filename = fnamemodify(l:candidate, ':p:t')
-"       " Currently glyph support is very poor in alacritty which is daily
-" 	  " termianl
-" 	  let l:icon = "`"
-" 	  "WebDevIconsGetFileTypeSymbol(l:filename, isdirectory(l:filename))
-"       call add(l:result, printf('%s %s', l:icon, l:candidate))
-"     endfor
-"
-"     return l:result
-"   endfunction
-"
-"   function! s:edit_file(item)
-"     let l:pos = stridx(a:item, ' ')
-"     let l:file_path = a:item[pos+1:-1]
-"     execute 'silent e' l:file_path
-"   endfunction
-"
-"   call fzf#run({
-"         \ 'source': <sid>files(),
-"         \ 'sink':   function('s:edit_file'),
-"         \ 'options': '-m --reverse ' . l:fzf_files_options,
-"         \ 'down':    '40%',
-"         \ 'window': 'call CreateCenteredFloatingWindow()'})
-"
-" endfunction
-
 " fzf recommended command
 command! -bang -nargs=* Ag call fzf#vim#ag_interactive(<q-args>, fzf#vim#with_preview('right:50%:hidden', 'alt-h'))
 command! -bang -nargs=* Rg call fzf#vim#rg_interactive(<q-args>, fzf#vim#with_preview('right:50%:hidden', 'alt-h'))
@@ -367,18 +292,6 @@ command! -bang -nargs=* Rg call fzf#vim#rg_interactive(<q-args>, fzf#vim#with_pr
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
-
-"-------------------------------------------------------------
-" NerdTree Configs
-"
-" UI Settings
-" let NERDTreeMinimalUI=1    " Start NERDTree in minimal UI mode (No help lines)
-" let NERDTreeDirArrows=1    " Display arrows instead of ascii art in NERDTree
-
-"-------------------------------------------------------------
-" LaTex option
-
-let g:tex_flavor='latex'
 
 "-------------------------------------------------------------
 " split option
@@ -398,7 +311,7 @@ map <Leader>th <C-w>t<C-w>H
 map <Leader>tk <C-w>t<C-w>K
 
 " Bat preview color
-let $FZF_PREVIEW_PREVIEW_BAT_THEME = 'gruvbox-light'
+let $FZF_PREVIEW_PREVIEW_BAT_THEME = 'zenburn'
 
 " Org mode tab size
 autocmd FileType org setlocal shiftwidth=2 softtabstop=2 expandtab

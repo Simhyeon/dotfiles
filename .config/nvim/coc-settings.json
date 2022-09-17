@@ -1,5 +1,8 @@
 {
+    "coc.preferences.triggerAfterInsertEnter": false,
+	"coc.preferences.formatOnSaveFiletypes": ["rust"],
 	"rust-analyzer.cargo.allFeatures": true,
+	"rust-analyzer.checkOnSave.command": "clippy",
 	"diagnostic.checkCurrentLine": true,
 	"languageserver": {
 		"xml": {
@@ -23,5 +26,6 @@
 	"prettier.disableLanguages": [
 		"typescript",
 		"javascript"
-	]
+  ],
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/14.0.3/clangd_14.0.3/bin/clangd"
 }
