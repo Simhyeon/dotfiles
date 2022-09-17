@@ -1,7 +1,7 @@
 export ZSH="/home/simon/.oh-my-zsh"
 
 ZSH_THEME="jnrowe"
-export BAT_THEME="zenburn"
+export BAT_THEME="Forest Night"
 
 plugins=(git rust vi-mode)
 
