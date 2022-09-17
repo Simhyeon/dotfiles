@@ -27,8 +27,8 @@ shift "$(($OPTIND -1))"
 
 if [ $CLIPBOARD = true ]; then
 	ARGS=$(xclip -o -selection c)
-	ARGS="$open_arg ${ARGS}"
-	echo $ARGS | xargs -r brs -a
+	ARGS="${ARGS} $open_arg "
+	echo $ARGS | xargs -r brs -s
 	exit 0
 fi
 
