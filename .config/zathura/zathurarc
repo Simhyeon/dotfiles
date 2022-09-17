@@ -16,7 +16,8 @@ set recolor true
 # mode.
 set recolor-reverse-video "true"
 # zenburn theme color
-set recolor-lightcolor "#3f3f3f"
+set recolor-lightcolor "#2b3339"
+set recolor-darkcolor "#d3c6aa"
 
 # No file name for goyo experience
 set guioptions none

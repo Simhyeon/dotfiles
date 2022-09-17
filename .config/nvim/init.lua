@@ -62,9 +62,9 @@ nmap('<C-q>',':q<CR>')
 -- [Misc configs]
 vim.cmd([[
 set mouse=a
-colors zenburn
 set t_Co=256
 set smartindent
+color everforest
 set hidden
 
 highlight clear SignColumn
