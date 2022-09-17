@@ -1,15 +1,16 @@
 #!/bin/sh
 while true
 do
-	#MEMORY=$(free -m | /usr/bin/grep Mem | awk '{print "("$3"/"$2")"}')
 	NETWORK=$(iwgetid -r)
 	VOLUME=$(pamixer --get-volume)
 	BRIGHTNESS=$(xbacklight -get)
 	CHARGE="$(cat /sys/class/power_supply/BAT0/capacity)%"
 	[ "$(cat /sys/class/power_supply/BAT0/status)" == "Charging" ] && CHARGE="${CHARGE}C"
+	UPTIME="$(uptime | sed 's/.*up\s*//' | sed 's/,\s*[0-9]* user.*//' | sed 's/  / /g')"
 	DATE=$(date "+%m-%d - %H:%M")
 	
-	STATUS="[NET: $NETWORK] [VOL: $VOLUME%] [BRT: $BRIGHTNESS%] [BATT: $CHARGE] [$DATE]"
+	STATUS="[NET: $NETWORK] [VOL: $VOLUME%] [BRT: $BRIGHTNESS%] [BATT: $CHARGE] [$UPTIME] [$DATE]"
 	xsetroot -name "$STATUS"
 	sleep 10
 done
+
