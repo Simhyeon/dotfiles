@@ -4,7 +4,7 @@ do
     # NETWORK
 	NETWORK=$(iwgetid -r)
     NETWORK_ICON=睊
-    if [ ! -z $NETWORK ]; then
+    if [ ! -z "$NETWORK" ]; then
         NETWORK_ICON=直
     fi
 
@@ -36,7 +36,7 @@ do
 	UPTIME="$(uptime | sed 's/.*up\s*//' | sed 's/,\s*[0-9]* user.*//' | sed 's/  / /g')"
 	DATE=$(date "+%m-%d %H:%M")
 
-	STATUS="[$NETWORK_ICON $NETWORK] [$VOLUME_ICON $VOLUME%] [$BRIGHTNESS_ICON $BRIGHTNESS%] [$CHARGE_ICON $CHARGE] [$UPTIME] [$DATE]"
+	STATUS="[$NETWORK_ICON $NETWORK] [$VOLUME_ICON $VOLUME%] [$BRIGHTNESS_ICON $BRIGHTNESS%] [$CHARGE_ICON $CHARGE] [ $UPTIME] [ $DATE]"
 	xsetroot -name "$STATUS"
 	sleep 10
 done
