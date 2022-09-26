@@ -1,15 +1,42 @@
 #!/bin/sh
 while true
 do
+    # NETWORK
 	NETWORK=$(iwgetid -r)
+    NETWORK_ICON=睊
+    if [ ! -z $NETWORK ]; then
+        NETWORK_ICON=直
+    fi
+
+    # VOLUME
 	VOLUME=$(pamixer --get-volume)
+    VOLUME_ICON= # No volume icon by default
+    if [[ VOLUME -ge 50 ]]; then
+        VOLUME_ICON=墳
+    elif [[ VOLUME -gt 0 ]]; then
+        VOLUME_ICON=奔
+    fi
+
+    # BRIGHTNESS
 	BRIGHTNESS=$(xbacklight -get)
-	CHARGE="$(cat /sys/class/power_supply/BAT0/capacity)%"
+    BRIGHTNESS_ICON= 
+    if [[ BRIGHTNESS -ge 80 ]]; then
+        BRIGHTNESS_ICON=
+    elif [[ BRIGHTNESS -ge 40 ]]; then
+        BRIGHTNESS_ICON=
+    fi
+
+    # CHARGE ICON
+	CHARGE="$(cat /sys/class/power_supply/BAT0/capacity)"
+    inc_amount=$(($CHARGE / 10 ))
+	CHARGE="$CHARGE%"
+    CHARGE_ICON=$(echo -e $(printf '\\U%x' "$((62841 + inc_amount))"))
 	[ "$(cat /sys/class/power_supply/BAT0/status)" == "Charging" ] && CHARGE="${CHARGE}C"
+
 	UPTIME="$(uptime | sed 's/.*up\s*//' | sed 's/,\s*[0-9]* user.*//' | sed 's/  / /g')"
-	DATE=$(date "+%m-%d - %H:%M")
-	
-	STATUS="[NET: $NETWORK] [VOL: $VOLUME%] [BRT: $BRIGHTNESS%] [BATT: $CHARGE] [$UPTIME] [$DATE]"
+	DATE=$(date "+%m-%d %H:%M")
+
+	STATUS="[$NETWORK_ICON $NETWORK] [$VOLUME_ICON $VOLUME%] [$BRIGHTNESS_ICON $BRIGHTNESS%] [$CHARGE_ICON $CHARGE] [$UPTIME] [$DATE]"
 	xsetroot -name "$STATUS"
 	sleep 10
 done
