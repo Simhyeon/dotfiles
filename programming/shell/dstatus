@@ -28,14 +28,24 @@ do
 
     # CHARGE ICON
 	CHARGE="$(cat /sys/class/power_supply/BAT0/capacity)"
-    inc_amount=$(($CHARGE / 10 ))
-    if [[ CHARGE -eq 100 ]]; then
-        CHARGE_ICON=
+	if [ "$(cat /sys/class/power_supply/BAT0/status)" == "Charging" ]; then
+        inc_amount=$(($CHARGE / 20 ))
+        # Yes charging
+        if [[ CHARGE -eq 100 ]]; then
+            CHARGE_ICON= 
+        else
+            CHARGE_ICON=$(echo -e $(printf '\\U%x' "$((62853 + inc_amount))"))
+        fi
     else
-        CHARGE_ICON=$(echo -e $(printf '\\U%x' "$((62841 + inc_amount))"))
+        inc_amount=$(($CHARGE / 10 ))
+        # No charing
+        if [[ CHARGE -eq 100 ]]; then
+            CHARGE_ICON=
+        else
+            CHARGE_ICON=$(echo -e $(printf '\\U%x' "$((62841 + inc_amount))"))
+        fi
     fi
 	CHARGE="$CHARGE%"
-	[ "$(cat /sys/class/power_supply/BAT0/status)" == "Charging" ] && CHARGE="${CHARGE}C"
 
 	UPTIME="$(uptime | sed 's/.*up\s*//' | sed 's/,\s*[0-9]* user.*//' | sed 's/  / /g')"
 	DATE=$(date "+%m-%d %H:%M")
