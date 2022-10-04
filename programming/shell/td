@@ -10,6 +10,19 @@ file="$(date --iso-8601).org"
 # Create new file
 # If current file is not existent
 
+# If given flags
+case "$1" in
+    "-r")
+        yesterday=$(date -d "yesterday 13:00" '+%Y-%m-%d').org
+	    dir="$rootdir/routine"
+        touch -a $dir/$file
+        cat $dir/$yesterday >> $dir/$file # Copy yesterday into today
+        exit 0
+        ;;
+    *)
+        ;;
+esac
+
 # Set directory from argument
 if [ -n "$1" ]; then
 	if [ -d "$dir/$1" ]; then
