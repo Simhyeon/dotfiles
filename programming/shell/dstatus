@@ -39,10 +39,12 @@ do
     else
         inc_amount=$(($CHARGE / 10 ))
         # No charing
-        if [[ CHARGE -eq 100 ]]; then
-            CHARGE_ICON=
-        else
-            CHARGE_ICON=$(echo -e $(printf '\\U%x' "$((62841 + inc_amount))"))
+	if [[ CHARGE -eq 100 ]]; then
+		CHARGE_ICON=
+	elif [[ CHARGE -lt 10 ]]; then
+		CHARGE_ICON=
+	else
+            CHARGE_ICON=$(echo -e $(printf '\\U%x' "$((62840 + inc_amount))"))
         fi
     fi
 	CHARGE="$CHARGE%"
